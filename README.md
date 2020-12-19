@@ -1,6 +1,7 @@
 ![0A63BFAC-7C55-49F6-A6BA-111F1DF9F6AD_4_5005_c](https://user-images.githubusercontent.com/70050531/102084360-65bf1d80-3e58-11eb-82de-647a2e845ed7.jpeg)
 # Kaggle_Cassava_Leaf_Disease_Classification<br>
-Cassava Leaf Disease Classification コンペのリポジトリ
+Cassava Leaf Disease Classification コンペのリポジトリ  
+タスク管理ボード: [リンク](https://github.com/Yuki-Tanaka-33937424/Kaggle_Cassava_Leaf_Disease_Classification/projects/2) <- 大事!!!  
 
 ## 方針(暫定)
 - Kaggle上で全てを完結させる
