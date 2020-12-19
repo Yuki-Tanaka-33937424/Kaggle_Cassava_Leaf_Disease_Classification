@@ -71,9 +71,15 @@ label_num_to_disease_map.json。各疾患コードと実際の疾患名とのマ
   - LBの結果を追記。  
 - nb 003  
   - ver2  
-    - Y.Nakamaさんのベースラインを写経。Resnext50_32x4dのpretrain有り。CV=0.87321  
+    - Y.Nakamaさんのベースラインを写経。Resnext50_32x4dのpretrain有り。  
+    - CV=0.87321, LB=0.880  
   - ver3  
-    - optimizerをAdamからAdaBeliefに変えてみる。CV=0.87321  
-- nb 005 
-  - ver1
-    - モデルは軽い方がいいため、多少精度は落ちるかもしれないがEfficientNet_B0で実験をしていく。
+    - optimizerをAdamからAdaBeliefに変えてみる。  
+    - CV=0.87321, LB=0.879  ほぼ変わらん。なぜ？？？  
+- nb 005   
+  - ver1  
+    - EfficientNet-B0を実装。実行時間が30分ぐらい減った!!  
+    - AdaBliefはそのまま。  
+    - CV=0.85288, LB=0.861  
+    - モデルは軽い方がいいため、多少精度は落ちるかもしれないがEfficientNet_B0で実験をしていく。  
+CVよりLBスコアの方が高いのはなぜ？若干違和感がある。
