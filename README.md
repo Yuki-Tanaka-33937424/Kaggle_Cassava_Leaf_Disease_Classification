@@ -69,5 +69,8 @@ label_num_to_disease_map.json。各疾患コードと実際の疾患名とのマ
 ### 20201219  
 - nb 001  
   - LBの結果を追記。  
-- nb 003(ver.1)
-  - Y.Nakamaさんのベースラインを写経。Resnext50_32x4dのpretrain有り。  
+- nb 003  
+  - ver2  
+    - Y.Nakamaさんのベースラインを写経。Resnext50_32x4dのpretrain有り。  
+  - ver3  
+    - optimizerをAdamからAdaBeliefに変えてみる。  
