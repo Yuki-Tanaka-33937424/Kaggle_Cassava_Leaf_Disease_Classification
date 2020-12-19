@@ -71,6 +71,9 @@ label_num_to_disease_map.json。各疾患コードと実際の疾患名とのマ
   - LBの結果を追記。  
 - nb 003  
   - ver2  
-    - Y.Nakamaさんのベースラインを写経。Resnext50_32x4dのpretrain有り。  
+    - Y.Nakamaさんのベースラインを写経。Resnext50_32x4dのpretrain有り。CV=0.87321  
   - ver3  
-    - optimizerをAdamからAdaBeliefに変えてみる。  
+    - optimizerをAdamからAdaBeliefに変えてみる。CV=0.87321  
+- nb 005 
+  - ver1
+    - モデルは軽い方がいいため、多少精度は落ちるかもしれないがEfficientNet_B0で実験をしていく。
