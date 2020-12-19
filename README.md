@@ -65,3 +65,9 @@ label_num_to_disease_map.json。各疾患コードと実際の疾患名とのマ
 ### 20201218  
 - nb001  
   - EDAの後に全ての画像のラベルを揃えてsubしてみた。trainとpublicの分布はほぼ同じとみていい。privateもほぼ同じだろう。  
+  
+### 20201219  
+- nb 001  
+  - LBの結果を追記。  
+- nb 003(ver.1)
+  - Y.Nakamaさんのベースラインを写経。Resnext50_32x4dのpretrain有り。  
