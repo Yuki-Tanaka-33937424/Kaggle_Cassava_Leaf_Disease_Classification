@@ -118,4 +118,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。
     - あと、あんまり関係ないけどGPUがもう切れそう。早い...  
   - ver8  
     - パラメータの解凍をepoch2に早めた。
-- [カエルさんのDiscussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/202017)よると、データセットのラベルがNoisyらしい。外れ値に対するpenaltyを和らげた**tempered loss**というものが有効らしい。それについてのGoogleの論文->[リンク](https://arxiv.org/abs/1906.03361)
+    - なせか実行時間が6分ぐらい減った。なぜ？？？
+    - CV=0.85718, LB=0.868  
+    - スコアがよくなってる！！  
+- [カエルさんのDiscussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/202017)よると、データセットのラベルがNoisyらしい。外れ値に対するpenaltyを和らげた**tempered loss**というものが有効らしい。それについてのGoogleの論文->[リンク]
+- GPUが明らかに足りてないので、とりあえずcolabに移行してみて、ダメだったらGCPを使いたい。    
