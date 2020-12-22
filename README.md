@@ -123,3 +123,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。
     - スコアがよくなってる！！  
 - [カエルさんのDiscussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/202017)よると、データセットのラベルがNoisyらしい。外れ値に対するpenaltyを和らげた**tempered loss**というものが有効らしい。それについてのGoogleの論文->[リンク](https://arxiv.org/abs/1906.03361)
 - GPUが明らかに足りてないので、とりあえずcolabに移行してみて、ダメだったらGCPを使いたい。    
+
+### 20201222  
+- Google Colabに移行しようとしたら、Kaggle APIのversionが古いらしくうまくいかなかった。[ここ](https://qiita.com/RIRIh/items/6c8495a190e3c978a48f)を参考にして強制的にupgradeしたら一応解決した。  
+- google colabの設定に死ぬほど時間がかかった!!!!!  
+- google colabだとbatch_sizeが64で限界っぽい。  
