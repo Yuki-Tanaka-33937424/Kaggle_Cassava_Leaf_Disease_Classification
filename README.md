@@ -142,3 +142,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb 005  
   - ver 9
     - bi_tempered_lossをとりあえず実装し、動くことを確認。t1とt2が1の時にうまく動作しない...  
+- nb 007 (E資格のプロダクト課題) nb 005 ver8 のfork　
+  - ver 3 (ver1とver2は失敗)  
+    - optimizerをAdam, AdaBound, RAdam, Adabeliefにして、fold1のみで実験  
+    - まあ恐らく結果はほとんど変わらない。schedulerがいい働きをしてoptimize間の違いを吸収してしまうはず。  
