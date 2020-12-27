@@ -149,4 +149,4 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb 007 (E資格のプロダクト課題) nb 005 ver8 のfork　
   - ver 3 (ver1とver2は失敗)  
     - optimizerをAdam, AdaBound, RAdam, Adabeliefにして、fold1のみで実験  
-    - まあ恐らく結果はほとんど変わらない。schedulerがいい働きをしてoptimize間の違いを吸収してしまうはず。  
+    - まあ恐らく結果はほとんど変わらない。schedulerがいい働きをしてoptimizer間の違いを吸収してしまうはず。  
