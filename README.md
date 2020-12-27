@@ -4,8 +4,8 @@ Cassava Leaf Disease Classification コンペのリポジトリ
 タスク管理ボード: [リンク](https://github.com/Yuki-Tanaka-33937424/Kaggle_Cassava_Leaf_Disease_Classification/projects/2) <- 大事!!!  
 
 ## 有用リンク
-[optimizer](https://github.com/jettify/pytorch-optimizer)
-[bi_tempered_loss の pytorch実装](https://github.com/mlpanda/bi-tempered-loss-pytorch)
+[optimizer](https://github.com/jettify/pytorch-optimizer)  
+[bi_tempered_loss の pytorch実装](https://github.com/mlpanda/bi-tempered-loss-pytorch)  
 
 ## 方針(暫定)
 - Kaggle上で全てを完結させる
