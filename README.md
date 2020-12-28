@@ -171,7 +171,9 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - CV=0.86523(fold1)。スコアが改善された。<br>
   - ver 13(12は失敗)<br>
     - 画像のsizeを512にしようとしたらメモリが足りなくなってしまった。その場合はbatchsizeを32にしないといけないらしい。そこで、まずはsizeを256のままbatch_sizeを32に落としてみる。<br>
-    - CV=0.86224。悪くなった...<br>
+    - CV=0.86224。当たり前だけど悪化した。<br>
   - ver 14
     - sizeを512に変更。
+    
+- cassavaコンペはこれまで何回かにわたり実施されていたらしい。そこで用いられたデータは使って良いそうだ。[このDiscussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/198131)に前回のcassavaコンペのリンクと1位から3位までのsolutionが載ってる。
   
