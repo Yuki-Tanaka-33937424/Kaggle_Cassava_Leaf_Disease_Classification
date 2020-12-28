@@ -168,4 +168,6 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - CV=0.86449(fold1)。かなりスコアがよくなった。<br>
   - ver 11<br>
     - [公開Kernel](https://www.kaggle.com/khyeh0719/pytorch-efficientnet-baseline-train-amp-aug)のAugmentationが良い感じだったので真似してみた。<br>
-    - CV=0.86523(fold1)。スコアが改善された。
+    - CV=0.86523(fold1)。スコアが改善された。<br>
+  - ver 13(12は失敗)<br>
+    - 画像のsizeを512にしようとしたらメモリが足りなくなってしまった。その場合はbatchsizeを32にしないといけないらしい。そこで、まずはsizeを256のままbatch_sizeを32に落としてみる。<br>
