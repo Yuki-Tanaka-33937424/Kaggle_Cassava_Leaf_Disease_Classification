@@ -165,3 +165,6 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
   - ver 10<br>
     - ver8からの更新。(bi tempered lossは一旦消している)<br>
     - E資格のプロダクト課題から、schedulerを使う時にはAdamが一番性能が良いことがわかっているため、schedulerをオンにして、optimizerをAdamに変更する。<br>
+    - CV=0.86449(fold1)。かなりスコアがよくなった。<br>
+  - ver 11<br>
+    - [公開Kernel](https://www.kaggle.com/khyeh0719/pytorch-efficientnet-baseline-train-amp-aug)のAugmentationが良い感じだったので真似してみた。<br>
