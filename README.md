@@ -179,3 +179,11 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - cassavaコンペはこれまで何回かにわたり実施されていたらしい。そこで用いられたデータは使って良いそうだ。[このDiscussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/198131)に前回のcassavaコンペのリンクと1位から3位までのsolutionが載ってる。
 - Snapmixという手法が有用らしい。[Discussionのリンク](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/204631)と[GitHubのリンク](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/198131)<br>
   
+### 20201229<br>
+- nb 005<br>
+  - ver 16(15は失敗)<br>
+    - bi_tempered_loss(今後はbi_lossと呼ぶ)を実装するにあたり実験の数が増えるので、一旦ver11に戻した。<br>
+    - bi_lossを実装するにあたり、labelをone-hotにした。validの時だけ戻してる。<br>
+    - num_iterの説明は論文のAppendixAにメモしておいた。pytorch実装ではt2を1とするとdimensionがおかしくなるみたい。<br>
+    - t1=1, t2=1.0001, label_smoothing=0で実験(ver11とほぼ同じ結果になるか試したい)。
+    
