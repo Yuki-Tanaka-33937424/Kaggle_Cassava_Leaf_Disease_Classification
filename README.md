@@ -185,5 +185,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - bi_tempered_loss(今後はbi_lossと呼ぶ)を実装するにあたり実験の数が増えるので、一旦ver11に戻した。<br>
     - bi_lossを実装するにあたり、labelをone-hotにした。validの時だけ戻してる。<br>
     - num_iterの説明は論文のAppendixAにメモしておいた。pytorch実装ではt2を1とするとdimensionがおかしくなるみたい。<br>
-    - t1=1, t2=1.0001, label_smoothing=0で実験(ver11とほぼ同じ結果になるか試したい)。
+    - t1=1, t2=1.0001, label_smoothing=0で実験(ver11とほぼ同じ結果になるか試したい)。<br>
+    - CV=0.86467(fold1)で、lossはほぼver11と変わらないので、しっかり再現できてる。<br>
+  - ver 17<br>
+    - t1=0.9に変更。
     
