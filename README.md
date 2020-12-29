@@ -197,4 +197,4 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - CVだけ見るとt1=0.7が一番いいが、lossの計算方法が違うせいで過学習してるかどうかの判定かできない。<br>
   - ver 19<br>
     - よく考えたら、t2も同時に変えないといけないことがわかったので、セルフgrid searchをして見ることにした。lossも、表示は以前のものに直した。(backwardはbi_loss)<br>
-    
+- [カエルさんのディスカッション](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/202017)で、gambler's lossというものが紹介されていた。Noisyなデータの中でもしっかり学習できるらしい。[paper](https://arxiv.org/pdf/2002.06541v1.pdf)はこれ。pytorch実装は一応[ここ](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/205424)で議題には上がっているが、誰も反応はしてないみたい。
