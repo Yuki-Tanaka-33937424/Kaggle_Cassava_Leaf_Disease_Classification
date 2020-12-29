@@ -207,6 +207,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       0.9 | 1.2 | 0.86561 | 0.3284 | 0.4813
       0.9 | 1.5 | **0.87028** | 0.5139 | 0.7602 <br>
     - t2がlossに強く影響してるようだ。t1=0.9, t2=1.5の時がいいようなので、今後は暫定的にこの値を使用する。<br>
+  - ver 20<br>
+    - label smoothingを導入する。<br>
       
 - [カエルさんのディスカッション](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/202017)で、gambler's lossというものが紹介されていた。Noisyなデータの中でもしっかり学習できるらしい。[paper](https://arxiv.org/pdf/2002.06541v1.pdf)はこれ。pytorch実装は一応[ここ](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/205424)で議題には上がっているが、誰も反応はしてないみたい。
 
