@@ -207,9 +207,23 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       0.9 | 1.2 | 0.86561 | 0.3284 | 0.4813
       0.9 | 1.5 | **0.87028** | 0.5139 | 0.7602 <br>
     - t2がlossに強く影響してるようだ。t1=0.9, t2=1.5の時がいいようなので、今後は暫定的にこの値を使用する。<br>
-  - ver 20<br>
-    - label smoothingを導入する。<br>
       
-- [カエルさんのディスカッション](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/202017)で、gambler's lossというものが紹介されていた。Noisyなデータの中でもしっかり学習できるらしい。[paper](https://arxiv.org/pdf/2002.06541v1.pdf)はこれ。pytorch実装は一応[ここ](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/205424)で議題には上がっているが、誰も反応はしてないみたい。
+- [カエルさんのディスカッション](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/202017)で、gambler's lossというものが紹介されていた。Noisyなデータの中でもしっかり学習できるらしい。[paper](https://arxiv.org/pdf/2002.06541v1.pdf)はこれ。pytorch実装は一応[ここ](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/205424)で議題には上がっているが、誰も反応はしてないみたい。<br>
 
+# 20201230<br>
+- nb 005<br>
+  - ver 20<br>
+    - label smoothingを導入する実験。実験結果は以下の通り。(t1=0.9, t2=1.5) <br>
+    - smooth | CV | train_loss | valid_loss
+      :---: | :---: | :---: | :---: | :---:
+      1e-5 | 0.86467 | 0.5129 | 0.7503
+      1e-4 | 0.86355 | 0.5168 | 0.7533
+      1e-3 | **0.86897** | 0.5176 | 0.7526
+      1e-2 | 0.86822 | 0.5066 | 0.7063
+      1e-1 | **0.86953** | 0.3667 | 0.5263 <br>
+    - 1e-1の結果が一番いいが、lossが異常に低いのが気になる。1e-3以下に比べれば1e-2もかなり低いので、正常値と見ていいか？？正直、CVの0.0006の違いなんて誤差だろう。<br>
+    - LBスコアも見た方がいいと思うので、上位三つに関しては再実験する。<br>
+  - ver 22<br>
+    - smooth=1e-3のfold1のみでサブ。
+    
 
