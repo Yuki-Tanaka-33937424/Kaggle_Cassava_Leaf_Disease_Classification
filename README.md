@@ -227,3 +227,4 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - smooth=1e-3のfold1のみでサブ。<br>
     
 - SAMというoptimizerが強いらしい。[解説記事](https://qiita.com/omiita/items/f24e4f06ae89115d248e)、[原論文](https://arxiv.org/abs/2010.01412)、[pytorch実装](https://github.com/davda54/sam)。<br>
+- 実験の再現性がないことに気づいた。恐らく、train_loopの中でseedを固定し忘れたこと、またはtorch.backends.cudnn.benchmark = Falseを忘れていたことが原因だろう。<br>
