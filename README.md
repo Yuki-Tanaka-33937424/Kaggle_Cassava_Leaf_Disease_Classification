@@ -210,7 +210,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       
 - [カエルさんのディスカッション](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/202017)で、gambler's lossというものが紹介されていた。Noisyなデータの中でもしっかり学習できるらしい。[paper](https://arxiv.org/pdf/2002.06541v1.pdf)はこれ。pytorch実装は一応[ここ](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/205424)で議題には上がっているが、誰も反応はしてないみたい。<br>
 
-# 20201230<br>
+### 20201230<br>
 - nb 005<br>
   - ver 20<br>
     - label smoothingを導入する実験。実験結果は以下の通り。(t1=0.9, t2=1.5) <br>
