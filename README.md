@@ -232,6 +232,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       1e-2 | **0.87028** | **0.868** | 0.4946 | 0.6984
       1e-1 | 0.86972 | 0.864 | 0.3887 | 0.5093 <br>
     - 結果から、1e-2が一番良さそうなので、とりあえずこれでいく。<br>
+  - ver 26<br>
+    - 最新のoptimizer,SAMを入れてみる。base_optimizerはAdam。<br>
       
     
 - SAMというoptimizerが強いらしい。[解説記事](https://qiita.com/omiita/items/f24e4f06ae89115d248e)、[原論文](https://arxiv.org/abs/2010.01412)、[pytorch実装](https://github.com/davda54/sam)。<br>
