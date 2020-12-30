@@ -223,6 +223,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       1e-1 | **0.86953** | 0.3667 | 0.5263 <br>
     - 1e-1の結果が一番いいが、lossが異常に低いのが気になる。1e-3以下に比べれば1e-2もかなり低いので、正常値と見ていいか？？正直、CVの0.0006の違いなんて誤差だろう。<br>
     - LBスコアも見た方がいいと思うので、上位三つに関しては再実験する。<br>
+    - 実験の再現性がないことに気づいた。恐らく、train_loopの中でseedを固定し忘れたこと、またはtorch.backends.cudnn.benchmark = Falseを忘れていたことが原因だろう。<br>
   - ver 22 ~ 25<br>
     - 再現性を確保してから、sub込みでsmoothingをもう一度実験。結果は次の通り。
       smooth | CV | LB | train_loss | valid_loss
@@ -232,6 +233,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       1e-2 | **0.87028** | **0.868** | 0.4946 | 0.6984
       1e-1 | 0.86972 | 0.864 | 0.3887 | 0.5093 <br>
     - 結果から、1e-2が一番良さそうなので、とりあえずこれでいく。<br>
+- SAMというoptimizerが強いらしい。[解説記事](https://qiita.com/omiita/items/f24e4f06ae89115d248e)、[原論文](https://arxiv.org/abs/2010.01412)、[pytorch実装](https://github.com/davda54/sam)。<br>
   - ver 26<br>
     - 最新のoptimizer,SAMを入れてみる。base_optimizerはAdam。<br>
     - CV | LB | train_loss | valid_loss
@@ -240,7 +242,3 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - LBはほぼ変わらないけどCVはよくなっているので、SGDも試してみてから採用を考える。<br>
   - ver 27<br>
     - SAMのbase_optimizerをSGDにした。<br>
-      
-    
-- SAMというoptimizerが強いらしい。[解説記事](https://qiita.com/omiita/items/f24e4f06ae89115d248e)、[原論文](https://arxiv.org/abs/2010.01412)、[pytorch実装](https://github.com/davda54/sam)。<br>
-- 実験の再現性がないことに気づいた。恐らく、train_loopの中でseedを固定し忘れたこと、またはtorch.backends.cudnn.benchmark = Falseを忘れていたことが原因だろう。<br>
