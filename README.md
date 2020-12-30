@@ -234,6 +234,12 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - 結果から、1e-2が一番良さそうなので、とりあえずこれでいく。<br>
   - ver 26<br>
     - 最新のoptimizer,SAMを入れてみる。base_optimizerはAdam。<br>
+    - CV | LB | train_loss | valid_loss
+      :-----: | :-----: | :-----: | :-----:
+      0.87234 | 0.867 | 0.4754 | 0.6090 <br>
+    - LBはほぼ変わらないけどCVはよくなっているので、SGDも試してみてから採用を考える。<br>
+  - ver 27<br>
+    - SAMのbase_optimizerをSGDにした。<br>
       
     
 - SAMというoptimizerが強いらしい。[解説記事](https://qiita.com/omiita/items/f24e4f06ae89115d248e)、[原論文](https://arxiv.org/abs/2010.01412)、[pytorch実装](https://github.com/davda54/sam)。<br>
