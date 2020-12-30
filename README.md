@@ -226,4 +226,4 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
   - ver 22<br>
     - smooth=1e-3のfold1のみでサブ。<br>
     
-
+- SAMというoptimizerが強いらしい。[解説記事](https://qiita.com/omiita/items/f24e4f06ae89115d248e)、[原論文](https://arxiv.org/abs/2010.01412)、[pytorch実装](https://github.com/davda54/sam)。<br>
