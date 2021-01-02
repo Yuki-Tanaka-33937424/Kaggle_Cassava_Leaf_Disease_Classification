@@ -246,7 +246,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 
 ### 20210102<br>
 - nb 008(EfficientNet_B4)<br>
-  - ver 1
+  - ver 1<br>
     - EfficientNetB4にモデルを変更。<br>
     - 画像サイズを512にしたところ、batchsizeが8じゃないとメモリに乗り切らないため、accumulation_stepを4にして、実質batch_sizeを32のままに保つことにした。<br>
     - num_foldを5にしたが、時間がかかりすぎるため、fold0のみを訓練する。<br>
@@ -254,6 +254,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       :-----: | :-----: | :-----: | :-----:
       0.88411 | 0.886 | 0.6157 | 0.6243 <br>
     - 期待よりスコアが低い。<br>
+  - ver 2<br>
+    - accumulation_stepを1にして、SAMを導入した。<br>
     
 - nb 005<br>
   - ver 29<br>
@@ -263,5 +265,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       0.86565 | 0.866 | 0.5139 | 0.7346 <br>
     - LBはほぼ変わらないので、CVの悪化は誤差とみなす。<br>
     - Logをよく見ると、valid_lossはepoch7が一番低かった。valid_lossでEarlystoppingをかけたら、LBスコアが改善する可能性があると考えられる。<br>
+  - ver 30<br>
+    - 画像サイズを512にして、batchsizeを32に下げ、さらにSAMを入れた。<br>
+    
 - AdamよりSAMの方がlossの下がり方が圧倒的に安定していた。なんとかしてgradient_accumulationとSAMを組み合わせたい。<br>
 
