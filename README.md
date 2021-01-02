@@ -253,9 +253,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - CV | LB | train_loss | valid_loss
       :-----: | :-----: | :-----: | :-----:
       0.88411 | 0.886 | 0.6157 | 0.6243 <br>
-    - 期待よりスコアが低い。<br>
-  - ver 2<br>
-    - accumulation_stepを1にして、SAMを導入した。<br>
+    - 期待よりスコアが低い。なぜ。<br>
     
 - nb 005<br>
   - ver 29<br>
@@ -267,6 +265,9 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - Logをよく見ると、valid_lossはepoch7が一番低かった。valid_lossでEarlystoppingをかけたら、LBスコアが改善する可能性があると考えられる。<br>
   - ver 30<br>
     - 画像サイズを512にして、batchsizeを32に下げ、さらにSAMを入れた。<br>
-    
+    - CV | LB | train_loss | valid_loss
+      :-----: | :-----: | :-----: | :-----:
+      0.88949 | 0.882 | 0.4715 | 0.5076 <br>
+    - LBが振るわなくてショック...<br>
 - AdamよりSAMの方がlossの下がり方が圧倒的に安定していた。なんとかしてgradient_accumulationとSAMを組み合わせたい。<br>
 
