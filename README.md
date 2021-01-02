@@ -242,4 +242,18 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - LBはほぼ変わらないけどCVはよくなっているので、SGDも試してみてから採用を考える。<br>
   - ver 28(27は失敗)<br>
     - SAMのbase_optimizerをSGDにした。<br>
-    - CV=0.69813。明らかにダメなの却下する。SAM+Adamを採用する。<br>
+    - CV=0.69813。明らかにダメなので却下する。Adamの場合も、LBが変わらないのに学習時間が30%ほど増えているため、Adamのままにしておく。<br>
+
+### 2021 0102<br>
+- nb 008(EfficientNet_B4ns)<br>
+  - ver 1
+    - EfficientNetB4nsにモデルを変更。<br>
+    - 画像サイズを512にしたところ、batchsizeが8じゃないとメモリに乗り切らないため、accumulation_stepを4にして、実質batch_sizeを32のままに保つことにした。<br>
+    - num_foldを5にしたが、時間がかかりすぎるため、fold0のみを訓練する。<br>
+
+- nb 005<br>
+  - ver 29<br>
+    - nb 008との比較のため、ver23あたりの、SAMをいれる前の状態でnum_foldを5にした。<br>
+    
+    
+  
