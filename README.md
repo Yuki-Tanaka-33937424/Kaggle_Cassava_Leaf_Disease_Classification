@@ -272,6 +272,12 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - AdamよりSAMの方がlossの下がり方が圧倒的に安定していた。なんとかしてgradient_accumulationとSAMを組み合わせたい。<br>
 
 ### 20210103<br>
+- nb 005<br>
+  - ver 31<br>
+    - ver26から、num_foldを5にして再実験。<br>
+    - CV | LB | train_loss | valid_loss
+      :-----: | :-----: | :-----: | :-----:
+      0.87234 | 0.874 | 0.4754 | 0.6090 <br>
 - nb 008<br>
   - ver 2<br>
     - batch_sizeを8にした上で、accumulation_stepを1に戻してSAMを入れた。<br>
@@ -280,5 +286,12 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       0.89159 | 0.886 | 0.5131 | 0.4894 <br>
     - CVはよくなってるがLBは変わらない。Noiseに引っ張られている可能性が高い。改善策としてはEarly stoppingや、画像の解像度を原論文通りに少し下げることが考えられる。<br>
     - TTAは本質的な改善には繋がらない気がするが、手っ取り早いのですぐ実装する。<br>
+    - tta | LB 
+      :-----: | :-----:
+      なし | 0.886
+      clopのみ | 0.885
+      clop&flip | 0.887 <br>
+    - 今回はclop&flipが一番いい結果を残しているが、[このdiscussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/206489)では、flipは効かないという意見が出ている。trainのaugmentationの複雑さと関係している可能性もあるため、trainのaugmentationを緩くすれば、結果が逆転する可能性もある。<br>
+
 
 
