@@ -278,6 +278,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - CV | LB | train_loss | valid_loss
       :-----: | :-----: | :-----: | :-----:
       0.87234 | 0.874 | 0.4754 | 0.6090 <br>
+    - LBが一気によくなって少し疑問が残るが、変化はnum_foldだけだから偶然とみなしておく。<br>
 - nb 008<br>
   - ver 2<br>
     - batch_sizeを8にした上で、accumulation_stepを1に戻してSAMを入れた。<br>
@@ -289,9 +290,9 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - tta | LB 
       :-----: | :-----:
       なし | 0.886
-      clopのみ | 0.885
-      clop&flip | 0.887 <br>
+      cropのみ | 0.885
+      crop&flip | 0.887 <br>
     - 今回はclop&flipが一番いい結果を残しているが、[このdiscussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/206489)では、flipは効かないという意見が出ている。trainのaugmentationの複雑さと関係している可能性もあるため、trainのaugmentationを緩くすれば、結果が逆転する可能性もある。<br>
 
-
+- [このdiscussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/206220)では、resizeよりcenter clopの方がいい結果が出てるというコメントがある。今のところRandomResizedcropを使っているため、試す価値はありそう。
 
