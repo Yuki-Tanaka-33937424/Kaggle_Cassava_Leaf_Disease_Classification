@@ -314,5 +314,12 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb005<br>
   - ver 33<br>
     - epochごとに全てモデルを保存しておいて後からアンサンブルしようとしたが、間違えてepoch10のみを保存してしまった。<br>
+  - ver 34<br>
+    - epoch6, 7, 8, 9でAveragingしてみた。アンサンブルなしとの比較は次の通り。<br>
+    - Averaging | LB
+      :-----: | :-----: 
+      なし(ver31) | 0.883
+      あり(ver34) | 0.888<br>
+    - かなりスコアが上がってる。Early stopiingの効果とアンサンブルの効果がどっちも反映されてるっぽい。<br>
 
 - discussionで議論されているlossがほぼ全て[このNotebook](https://www.kaggle.com/piantic/train-cassava-starter-using-various-loss-funcs)で実装されてる。すごい。<br>
