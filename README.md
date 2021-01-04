@@ -314,3 +314,5 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb005<br>
   - ver 33<br>
     - epochごとに全てモデルを保存しておいて後からアンサンブルしようとしたが、間違えてepoch10のみを保存してしまった。<br>
+
+- discussionで議論されているlossがほぼ全て[このNotebook](https://www.kaggle.com/piantic/train-cassava-starter-using-various-loss-funcs)で実装されてる。すごい。<br>
