@@ -323,3 +323,6 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - かなりスコアが上がってる。Early stopiingの効果とアンサンブルの効果がどっちも反映されてるっぽい。<br>
 
 - discussionで議論されているlossがほぼ全て[このNotebook](https://www.kaggle.com/piantic/train-cassava-starter-using-various-loss-funcs)で実装されてる。すごい。<br>
+
+### 20210105<br>
+- [このDiscussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/208239)でSymetric Cross Entropy LossというのがBi-tempered-lossよりいいスコアを出しているという報告がされている。<br>
