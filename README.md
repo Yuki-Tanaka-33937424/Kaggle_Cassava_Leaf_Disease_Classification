@@ -338,6 +338,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       5回 | 0.889
       8回 | 0.887 <br>
     - 多ければいいというわけではないらしい。今後は5回で固定する。<br>
+  - ver35<br>
+    - 様々なLossが実装されているNotebookからloss functionをコピペした。BiTemperedLossにして、これまでと同じ結果が正しく再現できるかをチェックする。<br>
 
 - nb010(create_model_EfficientNet_B0ns)<br>
   - ver1<br>
