@@ -327,6 +327,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 ### 20210105<br>
 - [このDiscussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/208239)でSymetric Cross Entropy LossというのがBi-tempered-lossよりいいスコアを出しているという報告がされている。<br>
 
+- EfficientNetは、画像の解像度も含めて最適化されているから、画像サイズをそれに合わせた方がいいかもしれない。<br>
+
 - nb005<br>
   - ver34(続き)<br>
     - ttaの回数を変えてみた。比較の結果は次の通り。<br>
@@ -337,10 +339,20 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       8回 | 0.887 <br>
     - 多ければいいというわけではないらしい。今後は5回で固定する。<br>
 
-- nb010<br>
+- nb010(create_model_EfficientNet_B0ns)<br>
   - ver1<br>
     - nb005_ver34から、モデルをEfficientNetB0(Noisy Student)に変更。<br>
     - CV | LB | train_loss | valid_loss
       :-----: | :-----: | :-----: | :-----:
       0.86799 | 0.886 | 0.4871 | 0.6274 <br>
     - 予想に反して、Noisy Studentの方がスコアが低い。誤差の範囲とも言えるが...<br>
+
+- nb012(inference_model_EfficientNet_B0&B0ns)<br<
+  - ver1<br>
+    - nb005_ver34とnb010_ver1のアンサンブル。結果は次の通り。<br<
+    - model | LB 
+      :-----: | :-----: 
+      B0 only | 0.889
+      B0ns only | 0.886
+      B0 & B0ns | 0.890 <br>
+    - 改善はしたが、思ったより伸び幅が小さい。epochごとのモデルを混ぜたり、TTAをしたりしているうちに多様性による伸び幅を使い尽くしてしまったのか...？<br>
