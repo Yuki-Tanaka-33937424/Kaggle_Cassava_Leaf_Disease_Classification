@@ -328,6 +328,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - [このDiscussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/208239)でSymetric Cross Entropy LossというのがBi-tempered-lossよりいいスコアを出しているという報告がされている。<br>
 
 - EfficientNetは、画像の解像度も含めて最適化されているから、画像サイズをそれに合わせた方がいいかもしれない。<br>
+- [このディスカッション](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/205491)でCutMixについての言及がある。有効っぽい。pytorchの実装は[ここ](https://github.com/hysts/pytorch_cutmix)にある。
 
 - nb005<br>
   - ver34(続き)<br>
