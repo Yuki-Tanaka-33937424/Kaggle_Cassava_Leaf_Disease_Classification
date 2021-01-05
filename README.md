@@ -326,3 +326,13 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 
 ### 20210105<br>
 - [このDiscussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/208239)でSymetric Cross Entropy LossというのがBi-tempered-lossよりいいスコアを出しているという報告がされている。<br>
+
+- nb005<br>
+  - ver34(続き)<br>
+    - ttaの回数を変えてみた。比較の結果は次の通り。<br>
+    - tta | LB 
+      :-----: | :-----: 
+      3回 | 0.888
+      5回 | 0.889
+      8回 | 0.887 <br>
+    - 多ければいいというわけではないらしい。今後は5回で固定する。<br>
