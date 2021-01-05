@@ -340,6 +340,9 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - 多ければいいというわけではないらしい。今後は5回で固定する。<br>
   - ver35<br>
     - 様々なLossが実装されているNotebookからloss functionをコピペした。BiTemperedLossにして、これまでと同じ結果が正しく再現できるかをチェックする。<br>
+    - 完全に再現できていた！<br>
+  - ver37(ver36失敗)<br>
+    - LossをSymmetricCrossEntropyLossにして実験
 
 - nb010(create_model_EfficientNet_B0ns)<br>
   - ver1<br>
@@ -349,7 +352,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       0.86799 | 0.886 | 0.4871 | 0.6274 <br>
     - 予想に反して、Noisy Studentの方がスコアが低い。誤差の範囲とも言えるが...<br>
 
-- nb012(inference_model_EfficientNet_B0&B0ns)<br<
+- nb012(inference_model_EfficientNet_B0&B0ns)<br>
   - ver1<br>
     - nb005_ver34とnb010_ver1のアンサンブル。結果は次の通り。<br<
     - model | LB 
