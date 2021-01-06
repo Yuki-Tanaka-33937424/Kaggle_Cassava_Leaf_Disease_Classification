@@ -362,3 +362,6 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       B0ns only | 0.886
       B0 & B0ns | 0.890 <br>
     - 改善はしたが、思ったより伸び幅が小さい。epochごとのモデルを混ぜたり、TTAをしたりしているうちに多様性による伸び幅を使い尽くしてしまったのか...？<br>
+
+### 20210106<br>
+- AutoAugmentationが[このディスカッション](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/208887)で議論されている。EfficientNetのSOTAのスコアにも貢献してるらしい。試す価値がありそう。<br>
