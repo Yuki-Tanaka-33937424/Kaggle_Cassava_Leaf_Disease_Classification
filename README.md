@@ -365,3 +365,17 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 
 ### 20210106<br>
 - AutoAugmentationが[このディスカッション](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/208887)で議論されている。EfficientNetのSOTAのスコアにも貢献してるらしい。試す価値がありそう。<br>
+
+- nb005<br>
+  - ver37~39<br>
+    - Loss Functionを変えて実験。結果は次の通り。<br>
+    - Loss fn (ver) | CV | LB 
+      :-----: | :-----: | :-----: 
+      BiTemperedLogisticLoss(ver35) | 0.87103 | 0.889
+      SymmetricCrossEntropyLoss(ver37) | 0.86729 | 0.886
+      FocalLoss(ver38) | 0.86706 | 0.883
+      FocalCosineLoss(ver39) | 0.87313 | 0.887 <br>
+    - Bi-Tempered-Lossが一番いいことがわかったので、今後もそれを用いる。<br>
+      
+      
+      
