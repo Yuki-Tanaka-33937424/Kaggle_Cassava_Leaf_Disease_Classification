@@ -401,6 +401,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 
 ### 20210108<br>
 - PytorchでもTPUが使えるらしい。TPUも週30時間使えるので、実装できれば計算資料の制限がかなり緩和されそう。腎コンペの[このNotebook](https://www.kaggle.com/joshi98kishan/foldtraining-pytorch-tpu-8-cores)にわかりやすくまとめられている。<br>
+- PANDAコンペでは、trainデータのみがNoisyだったらしい。1thの解法は、学習時にdenoiseしてしまってから再学習するというものだった。今回はtestデータもNoisyであるため機能するかは不透明だが、試す価値はあるのかもしれない。<br>
 - nb005<br>
   - ver45<br>
     - ver34でttaは5回が最適という結論が出たが、これはepochを複数にわたり用いる前の話なので、もう一度ttaをに下げる実験を行う。<br>
