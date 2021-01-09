@@ -446,3 +446,11 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       :-----: | :-----: | :-----: | :-----: 
       0.89066 | 0.896 | 0.4565 | 0.5380  <br>
       
+### 20210110<br>
+- nb015(create_model_EfficientNet_B1)<br>
+  - ver1<br>
+    - 条件等はnb013_ver3と全く同じ。modelがNoisy studentではなくなっただけ。<br>
+    
+- nb017<br>
+  - ver017(create_model_EfficientNetB2)<br>
+    - nb015_ver1のfork。画像サイズを440にした。メモリに乗り切らなかったため、batch_sizeを16に下げて、学習率も半分ずつにした。<br>
