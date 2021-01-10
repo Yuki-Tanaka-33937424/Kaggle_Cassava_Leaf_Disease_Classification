@@ -442,15 +442,27 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
   - ver3<br>
     - EfficientNetB1nsを画像サイズ410にして学習させる(ver1は380だが、使わない。ver2はただのミス)。
     - スコアは次の通り。
-    - CV | LB | train_loss | valid_loss 
-      :-----: | :-----: | :-----: | :-----: 
-      0.89066 | 0.896 | 0.4565 | 0.5380  <br>
+    - CV | LB | train_loss | valid_loss | time(s) 
+      :-----: | :-----: | :-----: | :-----: |:-----:
+      0.89066 | 0.896 | 0.4565 | 0.5380 | 7682.9 <br>
       
 ### 20210110<br>
 - nb015(create_model_EfficientNet_B1)<br>
   - ver1<br>
     - 条件等はnb013_ver3と全く同じ。modelがNoisy studentではなくなっただけ。<br>
+    - CV | LB | train_loss | valid_loss | time(s) 
+      :-----: | :-----: | :-----: | :-----: | :-----: 
+      0.88819 | ????? | 0.4469 | 0.5338 | 8063.4 <br>
     
-- nb017<br>
-  - ver017(create_model_EfficientNetB2)<br>
+- nb017(create_model_EfficientNetB2)<br>
+  - ver1<br>
     - nb015_ver1のfork。画像サイズを440にした。メモリに乗り切らなかったため、batch_sizeを16に下げて、学習率も半分ずつにした。<br>
+    - CV | LB | train_loss | valid_loss | time(s) 
+      0.88269 | ????? | 0.4883 | 0.5276 | 10213.2 <br>
+      
+- nb019(create_EfficientNetB2ns)<br>
+  - ver1<br>
+    - nb017_ver1のfork。モデルがNoisy studentになっている。<br>
+- nb021(create_EfficientNetB3)<br>
+  - ver1<br>
+    - nb019_ver1のfork。画像サイズが470になっている。<br>
