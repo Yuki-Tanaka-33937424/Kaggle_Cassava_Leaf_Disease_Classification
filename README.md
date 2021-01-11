@@ -455,19 +455,34 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       :-----: | :-----: | :-----: | :-----: | :-----: 
       0.88819 | 0.893 | 0.4469 | 0.5338 | 8063.4 <br>
     
-- nb017(create_model_EfficientNetB2)<br>
+- nb017(create_model_EfficientNet_B2)<br>
   - ver1<br>
     - nb015_ver1のfork。画像サイズを440にした。メモリに乗り切らなかったため、batch_sizeを16に下げて、学習率も半分ずつにした。<br>
     - CV | LB | train_loss | valid_loss | time(s) 
       :-----: | :-----: | :-----: | :-----: | :-----: 
       0.88269 | 0.893 | 0.4883 | 0.5276 | 10213.2 <br>
       
-- nb019(create_EfficientNetB2ns)<br>
+- nb019(create_model_EfficientNet_B2ns)<br>
   - ver1<br>
     - nb017_ver1のfork。モデルがNoisy studentになっている。<br>
     - CV | LB | train_loss | valid_loss | time(s) 
       :-----: | :-----: | :-----: | :-----: | :-----: 
       0.88459 | 0.895 | 0.5168 | 0.5032 | 9888.3 <br>
-- nb021(create_EfficientNetB3)<br>
+- nb021(create_model_EfficientNet_B3)<br>
   - ver1<br>
     - nb019_ver1のfork。画像サイズが470になっている。<br>
+    - CV | LB | train_loss | valid_loss | time(s) 
+      :-----: | :-----: | :-----: | :-----: | :-----: 
+      0.88819 | ????? | 0.4585 | 0.5088 | 13689.6 <br>
+- nb023(create_model_EfficientNet_B3ns)<br>
+  - ver1<br>
+    - nb021_ver1のfork。モデル以外は変更なし。
+    - CV | LB | train_loss | valid_loss | time(s) 
+      :-----: | :-----: | :-----: | :-----: | :-----: 
+      0.89427 | ????? | 0.4740 | 0.4891 | 13755.4 <br>
+- nb008(create_moodel_EfficientNet_B4)<br>
+  - ver4<br>
+    - nb023_ver1のfork。画像サイズを500に変えた。メモリに乗り切らなかったため、batch_sizeを8に変えて、学習率を半分に落とした。<br>
+- nb025(create_model_EfficientNet_B4ns)<br>
+  - ver1<br>
+    - nb008_ver4のfork。モデル以外は変更なし。<br>
