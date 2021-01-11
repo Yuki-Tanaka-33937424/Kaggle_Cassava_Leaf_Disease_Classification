@@ -483,6 +483,11 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb008(create_moodel_EfficientNet_B4)<br>
   - ver4<br>
     - nb023_ver1のfork。画像サイズを500に変えた。メモリに乗り切らなかったため、batch_sizeを8に変えて、学習率を半分に落とした。<br>
+    - CV | LB | train_loss | valid_loss | time(s) 
+      :-----: | :-----: | :-----: | :-----: | :-----: 
+      0.88952 | ????? | 0.5055 | 0.4547 | 22356.8 <br>
+    - valid_lossはepoch10が一番よかった。他のモデルにもepoch10が一番いい場合が見られるので、混ぜるepochは[6, 7, 8, 9]ではなく[7, 8, 9, 10]でもいいかもしれない。
 - nb025(create_model_EfficientNet_B4ns)<br>
   - ver1<br>
     - nb008_ver4のfork。モデル以外は変更なし。<br>
+    - 
