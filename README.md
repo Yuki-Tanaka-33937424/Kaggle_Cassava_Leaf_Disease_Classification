@@ -473,21 +473,32 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - nb019_ver1のfork。画像サイズが470になっている。<br>
     - CV | LB | train_loss | valid_loss | time(s) 
       :-----: | :-----: | :-----: | :-----: | :-----: 
-      0.88819 | ????? | 0.4585 | 0.5088 | 13689.6 <br>
+      0.88819 | 0.892 | 0.4585 | 0.5088 | 13689.6 <br>
 - nb023(create_model_EfficientNet_B3ns)<br>
   - ver1<br>
     - nb021_ver1のfork。モデル以外は変更なし。
     - CV | LB | train_loss | valid_loss | time(s) 
       :-----: | :-----: | :-----: | :-----: | :-----: 
-      0.89427 | ????? | 0.4740 | 0.4891 | 13755.4 <br>
+      0.89427 | 0.899 | 0.4740 | 0.4891 | 13755.4 <br>
 - nb008(create_moodel_EfficientNet_B4)<br>
   - ver4<br>
     - nb023_ver1のfork。画像サイズを500に変えた。メモリに乗り切らなかったため、batch_sizeを8に変えて、学習率を半分に落とした。<br>
     - CV | LB | train_loss | valid_loss | time(s) 
       :-----: | :-----: | :-----: | :-----: | :-----: 
-      0.88952 | ????? | 0.5055 | 0.4547 | 22356.8 <br>
+      0.88952 | 0.893 | 0.5055 | 0.4547 | 22356.8 <br>
     - valid_lossはepoch10が一番よかった。他のモデルにもepoch10が一番いい場合が見られるので、混ぜるepochは[6, 7, 8, 9]ではなく[7, 8, 9, 10]でもいいかもしれない。
 - nb025(create_model_EfficientNet_B4ns)<br>
   - ver1<br>
     - nb008_ver4のfork。モデル以外は変更なし。<br>
-    - 
+    - CV | LB | train_loss | valid_loss | time(s) 
+      :-----: | :-----: | :-----: | :-----: | :-----: 
+      0.88933 | 0.897 | 0.5233 | 0.5013 | 22328.9 <br>
+    - nb008_ver4と同じように、epoch10の時が一番valid_lossは小さかった。
+    - trainではbatch_sizeは8でないとダメだったが、inferenceでは16でも大丈夫だった。もしかしたら32でも大丈夫かもしれない。<br>
+
+### 20210112<br>
+- nb027(inference_EfficientNet_Averaging)<br>
+  - ver1<br> 
+    - nb013_ver3(Effinet_B1ns), nb019_ver1(Effinet_B2ns), nb023_ver1(Effinet_B3ns), nb025_ver1(Effinet_B4ns)のAveraging。9時間をオーバーしそうなので一旦B0はのぞいてある。<br>
+    - 間違えて、画像サイズを380にしてしまった。batch_sizeも32で固定されてしまっている。<br>
+    - もしB4nsがbatch_size32でも通るのであれば、推論時間の短縮になるのでそうしたい。<br>
