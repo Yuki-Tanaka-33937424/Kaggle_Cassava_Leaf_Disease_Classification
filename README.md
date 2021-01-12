@@ -495,7 +495,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       0.88933 | 0.897 | 0.5233 | 0.5013 | 22328.9 <br>
     - nb008_ver4と同じように、epoch10の時が一番valid_lossは小さかった。
     - trainではbatch_sizeは8でないとダメだったが、inferenceでは16でも大丈夫だった。もしかしたら32でも大丈夫かもしれない。<br>
-
+    - epochを[7, 8, 9, 10]にしてもLBスコアは同じだった。batch_sizeは32でも大丈夫だった。<br>
 ### 20210112<br>
 - nb027(inference_EfficientNet_Averaging)<br>
   - ver1<br> 
