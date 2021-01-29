@@ -566,3 +566,6 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - fold0とfold4を学習させたが、タイムオーバーでエラーになってしまった。<br>
   - ver3<br>
     - fold4のみを学習させる(予定)<br>
+- nb028(create_model_seresnext50_32x4d)<br>
+  - ver1<br>
+    - モデルをseresnextに変更した。batch_sizeは32で、foldは0のみ。<br>
