@@ -556,7 +556,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
   - ver4<br>
     - アンサンブルの実験をするためにfold0に加えてfold1も学習させる。<br>
 - nb019(B2ns)<br>
-  - ver4<br>
+  - ver4(ver3は失敗)<br>
     - fold0とfold2を学習させる。<br>
 - nb023(B3ns)<br>
   - ver2(B3ns)<br>
