@@ -623,3 +623,18 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       snapmix(p=0.5) | 0.88497 | 0.890 | 1.1941 | 0.4103 
       snapmix(p=1.0) | 0.88136 | 0.884 | 1.6599 | 0.4418 <br>
     - discussionではsnapmixは効くと言われていたのに効かなかった。snapmixの割合を落とせばいいのかもしれない。<br>
+
+### 20210203<br>
+- 今日は一日テスト勉強に費やした。<br>
+### 20210204<br>
+- nb028<br>
+  - ver3<br>
+    - 画像サイズを410にした。<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----:  | :-----: 
+      0.89237 | 0.897 | 0.4325 | 0.5610 <br>
+    - スコアが上がった。これを見る限り、augmentation(snapmixとか)を強くしすぎてもスコアが下がるのは妥当だと思われる。<br>
+- [transformerについてのQiita記事](https://qiita.com/omiita/items/07e69aef6c156d23c538)や[英語の記事](http://jalammar.github.io/illustrated-transformer/)を見てtransformerについての理解を深めた。また、ViTについての[Qiita記事](https://qiita.com/omiita/items/0049ade809c4817670d7)も読んだ。明日からVision Transformerを実装したい。<br>
+
+### 20210205<br>
+    
