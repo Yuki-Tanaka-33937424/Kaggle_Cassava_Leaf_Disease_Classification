@@ -645,7 +645,6 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - 最後にxmp.spawnで複数のプロセスを起動する必要がある。これはもともとNotebookの最後には書いてあったが、見逃していた。<br>
     - optimizerを更新するときは、xm.optimizer_step(optimizer)を使って、複数のプロセスの勾配を平均する必要がある。それにより、SAMが使えなくなる(使えるかもしれないけど現時点の自分の実力では無理)。
     - optimizerやmodelは複数のプロセスで共通のものを使うため、train_loopの外に書く必要がある。よって、optimizerの学習率を途中で下げるために、loopの途中でoptimizerを定義し直すと学習が進まなくなる。<br>
-    - os.environ["XLA_USE_BF16"] = "1" を打たないと、TPUの混合精度にならなくて遅い。<br> 
+    - os.environ["XLA_USE_BF16"] = "1" を打たないと、TPUの混合精度にならなくて遅い。[参考記事](https://speakerdeck.com/shimacos/pytorchdeshi-meruhazimetefalsetpu?slide=17)<br> 
     - TPUが2epoch以降に早くなるのは仕様。[参考記事](https://qiita.com/koshian2/items/fb989cebe0266d1b32fc)<br>
-
-  - DistritutedSamplerを使ってDatasetからsamplerを作ってDataLoaderに渡さないと並列化ができないらしい(少なくともnprocsを8にするときは必須)。()
+- GitHubの更新をdatasetに反映させるためにupdateをして、notebook内でも更新をしてsession restart, ページのリロードも行ったところ、ファイルの中のコードが変わったにも関わらず、実際に動いているのは更新前のコードというバグがあった。一度Notebookを閉じて再び開けると直ったため、今後は気をつける必要がある。(ちなみに悩まされていたのはSAMのoptimizer.step(closure)をできるようにしたかったため)<br>
