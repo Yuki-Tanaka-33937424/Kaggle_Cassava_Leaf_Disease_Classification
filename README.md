@@ -655,5 +655,14 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
   - ver4<br>
     - モデルの重みを一旦凍結して、後から解凍した時、うまく学習してるかが判別できなかったため、とりあえずそのオプションは外した。<br>
     - また、schedulerをGradualWarmupSchedulerV2に変更している。(途中でoptimizerの重みを変更できなかったため。)<br>
+    - 全然学習が進まなかった。ただ、並列化などはうまく行っている。schedulerが原因である可能性が大きい。<br>
+  - ver5<br>
+  - schedulerをCosineAnnealingWarmRestartsに戻した。
     
+- nb023(B3ns)<br>
+  - ver7<br>
+    - Snapmixの割合を0.2に下げた<br>
+- nb028(SeResNeXt)<br>
+  - ver5(ver4は失敗)<br>
+    - 画像サイズを440に上げた。<br>
   
