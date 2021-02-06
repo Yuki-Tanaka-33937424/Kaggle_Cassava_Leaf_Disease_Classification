@@ -647,4 +647,13 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - optimizerやmodelは複数のプロセスで共通のものを使うため、train_loopの外に書く必要がある。よって、optimizerの学習率を途中で下げるために、loopの途中でoptimizerを定義し直すと学習が進まなくなる。<br>
     - os.environ["XLA_USE_BF16"] = "1" を打たないと、TPUの混合精度にならなくて遅い。[参考記事](https://speakerdeck.com/shimacos/pytorchdeshi-meruhazimetefalsetpu?slide=17)<br> 
     - TPUが2epoch以降に早くなるのは仕様。[参考記事](https://qiita.com/koshian2/items/fb989cebe0266d1b32fc)<br>
+  - ver1~3はいずれも失敗に終わった。<br>
 - GitHubの更新をdatasetに反映させるためにupdateをして、notebook内でも更新をしてsession restart, ページのリロードも行ったところ、ファイルの中のコードが変わったにも関わらず、実際に動いているのは更新前のコードというバグがあった。一度Notebookを閉じて再び開けると直ったため、今後は気をつける必要がある。(ちなみに悩まされていたのはSAMのoptimizer.step(closure)をできるようにしたかったため)<br>
+
+### 20210206<br>
+- nb030<br>
+  - ver4<br>
+    - モデルの重みを一旦凍結して、後から解凍した時、うまく学習してるかが判別できなかったため、とりあえずそのオプションは外した。<br>
+    - また、schedulerをGradualWarmupSchedulerV2に変更している。(途中でoptimizerの重みを変更できなかったため。)<br>
+    
+  
