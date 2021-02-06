@@ -637,4 +637,15 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - [transformerについてのQiita記事](https://qiita.com/omiita/items/07e69aef6c156d23c538)や[英語の記事](http://jalammar.github.io/illustrated-transformer/)を見てtransformerについての理解を深めた。また、ViTについての[Qiita記事](https://qiita.com/omiita/items/0049ade809c4817670d7)も読んだ。明日からVision Transformerを実装したい。<br>
 
 ### 20210205<br>
-    
+- nb030(create_model_ViT)<br>
+  - [このNotebook](https://www.kaggle.com/piantic/cnn-or-transformer-pytorch-xla-tpu-for-cassava)を参考にTPUでVision Transformerを実装した。<br>
+  - なぜかGPUより遅いし、2epoch目以降は全く学習をしてくれない。<br>
+  - 以下、動かしててわかったことを書く。<br>
+    - DistritutedSamplerを使ってDatasetからsamplerを作ってDataLoaderに渡さないと並列化ができないらしい(少なくともnprocsを8にするときは必須)。<br>
+    - 最後にxmp.spawnで複数のプロセスを起動する必要がある。これはもともとNotebookの最後には書いてあったが、見逃していた。<br>
+    - optimizerを更新するときは、xm.optimizer_step(optimizer)を使って、複数のプロセスの勾配を平均する必要がある。それにより、SAMが使えなくなる(使えるかもしれないけど現時点の自分の実力では無理)。
+    - optimizerやmodelは複数のプロセスで共通のものを使うため、train_loopの外に書く必要がある。よって、optimizerの学習率を途中で下げるために、loopの途中でoptimizerを定義し直すと学習が進まなくなる。<br>
+    - os.environ["XLA_USE_BF16"] = "1" を打たないと、TPUの混合精度にならなくて遅い。<br> 
+    - TPUが2epoch以降に早くなるのは仕様。[参考記事](https://qiita.com/koshian2/items/fb989cebe0266d1b32fc)<br>
+
+  - DistritutedSamplerを使ってDatasetからsamplerを作ってDataLoaderに渡さないと並列化ができないらしい(少なくともnprocsを8にするときは必須)。()
