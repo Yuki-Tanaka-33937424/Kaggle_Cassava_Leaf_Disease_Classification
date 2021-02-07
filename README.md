@@ -655,7 +655,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
   - ver4<br>
     - モデルの重みを一旦凍結して、後から解凍した時、うまく学習してるかが判別できなかったため、とりあえずそのオプションは外した。<br>
     - また、schedulerをGradualWarmupSchedulerV2に変更している。(途中でoptimizerの重みを変更できなかったため。)<br>
-    - 全然学習が進まなかった。ただ、並列化などはうまく行っている。schedulerが原因である可能性が大きい。<br>
+    - 全然学習が進まなかった。ただ、並列化などはうまく行っている。schedulerが原因である可能性が大きい<br>
+    - その後も頑張り続けたが、全く動かなかった。<br>
   - ver5<br>
   - schedulerをCosineAnnealingWarmRestartsに戻した。
     
@@ -683,4 +684,21 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - clean_labを使ってみた。全てを理解することはできなかったので、[論文](https://arxiv.org/pdf/1911.00068.pdf)を参考にしつつ、[公開されているNotebook](https://www.kaggle.com/telljoy/noisy-label-eda-with-cleanlab?scriptVersionId=53077552&select=oof.csv)からdenoiseされたラベルデータを取得して自分のNotebookに組み込むことにした。<br>
 - nb023<br>
   - ver10(ver9は失敗)<br>
-  - clean_labで更新されたlabelで訓練した。それ以外はver1と全く同じ。<br>
+    - clean_labで更新されたlabelで訓練した。それ以外はver1と全く同じ。<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----:
+      0.93926 | 0.893 | 0.2333 | 0.2148 <br>
+    - モデルの予測を元に更新したラベルを使ってるので、当たり前な結果が出てきた。ラベルを入れ替えるよりは、間違いっぽいラベルを外す方が良さそう。<br>
+  - ver11<br>
+    - 今度は、noisyラベルを外して訓練してみる。<br>
+- nb031<br>
+  - ver1<br>1
+    - 公開Kernelを使わせていただくことにした。DEiTを使う。(schedulerのみGradualWarmupSchedulerV2から'CosineAnnealingWarmRestarts'に変えて、epochも20から10に落としている)<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----:
+      0.86729 | - | 0.5808 | 0.5694 <br>
+    - 明らかに学習しきれていないのでsubはしてない。やはりepochやschedulerはいじらない方がよかったかもしれない。<br>
+  - ver2<br>
+    - モデルをViTに変えた。軽めに実験した感じでは、lrは1e-4が一番よかった。<br>
+    - 公開Kernelを使わせていただくことにした。DEiTを使う。(schedulerのみGradualWarmupSchedulerV2から'CosineAnnealingWarmRestarts'に変えて、epochも20から10に落としている)<br>学習
+    - 公開Kernelを使わせていただくことにした。DEiTを使う。(schedulerのみGradualWarmupSchedulerV2から'CosineAnnealingWarmRestarts'に変えて、epochも20から10に落としている)<br>
