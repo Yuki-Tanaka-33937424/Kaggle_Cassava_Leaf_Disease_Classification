@@ -660,11 +660,27 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
   - schedulerをCosineAnnealingWarmRestartsに戻した。
     
 - nb023(B3ns)<br>
-  - ver7<br>
-    - Snapmixの割合を0.2に下げた<br>
+  - ver7・8<br>
+    - Snapmixの割合をに下げた<br>
+    - 結果は次の通り<br>
+    - snapmix | CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----: | :-----: 
+      0.2 | 0.88686 | 0.896 | 0.8799 | 0.4346 
+      0.1 | 0.88819 | 0.894 | 0.7494 | 0.4805 <br>
+    - 効いてないように見える。snapmix系のaugmentationでラベルノイズを攻略するのは難しいと判断する。<br>
+    - snapmixの確率をあげるとvalid_lossは小さくなるが、CV, LBは悪くなっている。これは根本的にラベルノイズの解決にはなってないことを意味する。(と思ってる。)<br>
 - nb028(SeResNeXt)<br>
   - ver5(ver4は失敗)<br>
     - 画像サイズを440に上げた。<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----: | 
+      0.89446 | 0.895 | 0.4779 | 0.5032 <br>
+    - CVはよくなってるが、LBが悪くなってる。TTAの影響でたまたまLBがよくない可能性は否めない。<br>
   
 ### 20210207<br>
 - [このディスカッション](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/217328)によると、shakeはあまり大きくなく、9割は+/-0.005程度に落ち着くらしい。コメントを見ると、そもそもprivateスコアがリークしてることがわかった時、ほとんどpublicスコアとの差がないことが判明されてることが指摘されている。今回はLBを重視していいと考えられる。MoAの反省も踏まえると、shakeをビビりすぎてはいけない。<br>
+- 今更、optimizerをAdamにしてgradient_accumulationを上げたほうがいいような気がしてきた。ほとんど誰もSAMを使ってない。ひと段落したら試してみてもいいが、一度決めたことを変えすぎるのはよくないとMoAで反省をしたので、あまり優先度は高くしないでおく。<br>
+- clean_labを使ってみた。全てを理解することはできなかったので、[論文](https://arxiv.org/pdf/1911.00068.pdf)を参考にしつつ、[公開されているNotebook](https://www.kaggle.com/telljoy/noisy-label-eda-with-cleanlab?scriptVersionId=53077552&select=oof.csv)からdenoiseされたラベルデータを取得して自分のNotebookに組み込むことにした。<br>
+- nb023<br>
+  - ver10(ver9は失敗)<br>
+  - clean_labで更新されたlabelで訓練した。それ以外はver1と全く同じ。<br>
