@@ -726,6 +726,9 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb028<br>
   - ver6<br>
     - 画像サイズを410に戻し、Rand_Augmentを実装した。<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----:
+      0.88743 | - | 0.5569 | 0.5467 <br>
 - nb031<br>
   - ver5<br>
     - モデルをdeit_base_patch16_384に変更した(distilledはなぜか動かなかった)。<br>
@@ -736,5 +739,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - アンサンブルに十分使えそうなモデルができた。loss_functionを変えたりして微調整をしたい。<br>
   - ver6<br>
     - Bi_Tempered_Lossにした。これまで通り,t1=0.8, t2=1.5, smooth=1e-2にしている。(smooth=5e-2がデフォルトだったが、少し様子を見る限りでは1e-2の方が良さそう。)<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----:
+      0.88505 | - | 0.2730 | 0.2658 <br>
     
 - RandAugmentに関する[いい記事](https://qiita.com/takoroy/items/e2f1ee627311be5d879d)を見つけた。<br>
