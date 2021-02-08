@@ -725,6 +725,6 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - inferenceの時もinternetが必要ということがわかったので、githubからモデルをコピペしたけど、これはグレーゾーンだと思う。<br>
     - CV | LB | train_loss | valid_loss 
       :-----: | :-----: | :-----: | :-----:
-      0.88715 | - | 0.5281 | 0.5344 <br>
+      0.88715 | 0.896 | 0.5281 | 0.5344 <br>
     
 - RandAugmentに関する[いい記事](https://qiita.com/takoroy/items/e2f1ee627311be5d879d)を見つけた。<br>
