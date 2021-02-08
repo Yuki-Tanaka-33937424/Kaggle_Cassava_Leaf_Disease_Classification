@@ -691,6 +691,10 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - モデルの予測を元に更新したラベルを使ってるので、当たり前な結果が出てきた。ラベルを入れ替えるよりは、間違いっぽいラベルを外す方が良さそう。<br>
   - ver11<br>
     - 今度は、noisyラベルを外して訓練してみる。<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----:
+      0.95170 | 0.897 | 0.2027 | 0.1751 <br>
+    - CVは明らかに高いが、一応denoiseの形としてはこっちが正解なのかもしれない。ここにsnapmixを加えてみても良さそうではある。<br>
 - nb031<br>
   - ver1<br>1
     - 公開Kernelを使わせていただくことにした。DEiTを使う。(schedulerのみGradualWarmupSchedulerV2から'CosineAnnealingWarmRestarts'に変えて、epochも20から10に落としている)<br>
@@ -701,4 +705,25 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
   - ver2<br>
     - モデルをViTに変えた。軽めに実験した感じでは、lrは1e-4が一番よかった。<br>
     - 公開Kernelを使わせていただくことにした。DEiTを使う。(schedulerのみGradualWarmupSchedulerV2から'CosineAnnealingWarmRestarts'に変えて、epochも20から10に落としている)<br>学習
-    - 公開Kernelを使わせていただくことにした。DEiTを使う。(schedulerのみGradualWarmupSchedulerV2から'CosineAnnealingWarmRestarts'に変えて、epochも20から10に落としている)<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----:
+      0.86729 | - | 0.6204 | 0.5708 <br>
+    - ViTにしてもほぼ同じ結果が出た。本格的にわからない...<br>
+    - [Discussion]を見ると、DeiTの画像サイズが384のweightがあるらしいので変更する。<br>
+  
+### 20210208<br>
+- nb023<br>
+  - ver12<br>
+    - denoiseした上でsnapmixを加えてみる。<br>
+- nb027<br>
+  - ver8<br>
+    - denoiseをしたB3ns(ver11)と普通のB2nsを混ぜてみた。<br>
+    - B2nsが0.898、B3nsが0.897、アンサンブルが0.898なので、あまり効果がなかった。denoiseをしたとはいえEfficientNetを混ぜるだけでは意味がないのかもしれないし、そもそも確率をaveragingするよりは多数決にしたほうがいいのかもしれない。<br>
+- nb031<br>
+  - ver5<br>
+    - モデルをdeit_base_patch16_384に変更した(distilledはなぜか動かなかった)。<br>
+    - inferenceの時もinternetが必要ということがわかったので、githubからモデルをコピペしたけど、これはグレーゾーンだと思う。<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----:
+      0.88715 | - | 0.5281 | 0.5344 <br>
+    
