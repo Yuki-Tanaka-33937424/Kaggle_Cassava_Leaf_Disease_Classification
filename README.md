@@ -715,10 +715,16 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb023<br>
   - ver12<br>
     - denoiseした上でsnapmixを加えてみる。<br>
-- nb027<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----:
+      0.94716 | - | 0.7098 | 0.1719 <br>
+- nb027(Averaging)<br>
   - ver8<br>
     - denoiseをしたB3ns(ver11)と普通のB2nsを混ぜてみた。<br>
     - B2nsが0.898、B3nsが0.897、アンサンブルが0.898なので、あまり効果がなかった。denoiseをしたとはいえEfficientNetを混ぜるだけでは意味がないのかもしれないし、そもそも確率をaveragingするよりは多数決にしたほうがいいのかもしれない。<br>
+- nb028<br>
+  - ver6<br>
+    - 画像サイズを410に戻し、Rand_Augmentを実装した。<br>
 - nb031<br>
   - ver5<br>
     - モデルをdeit_base_patch16_384に変更した(distilledはなぜか動かなかった)。<br>
@@ -726,5 +732,6 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - CV | LB | train_loss | valid_loss 
       :-----: | :-----: | :-----: | :-----:
       0.88715 | 0.896 | 0.5281 | 0.5344 <br>
+    - アンサンブルに十分使えそうなモデルができた。loss_functionを変えたりして微調整をしたい。<br>
     
 - RandAugmentに関する[いい記事](https://qiita.com/takoroy/items/e2f1ee627311be5d879d)を見つけた。<br>
