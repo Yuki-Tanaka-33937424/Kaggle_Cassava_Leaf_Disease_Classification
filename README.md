@@ -756,7 +756,12 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       0.93829 | - | 0.3928 | 0.2525 <br>
 - nb028<br>
   - ver8(ver7は失敗)<br>
-    - ver3の状態から、loss_functionをBiTemperedLossからTaylorCrossEntropyLossに変更した。<br>
+    - ver3の状態から、loss_functionをBiTemperedLossからTaylorCrossEntropyLossに変更した。原論文は[これ](https://www.ijcai.org/Proceedings/2020/0305.pdf)で、実装(非公式)は[ここ](https://github.com/CoinCheung/pytorch-loss/blob/master/pytorch_loss/taylor_softmax.py)。<br>
+    - 結果が全く良くなかった。原論文を読んで気がついたが、どうやらテイラー展開の次数がパラメータになっていて、低ければ低いほどMAEに近く(よりロバストに)なり、大きければ大きいほどCCEに近く(よりセンシティブに)なるらしい。ver8はt=2で回しており、tが低過ぎたらしい。その後に軽くt=4で回したらかなりうまく学習が進んだ。原論文ではt=2, 4, 6が実験されていた。<br>
 - nb031<br>
   - ver7<br>
     - Rand_Augmentを外してみた。<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----:
+      0.86449 | - | 0.4789 | 0.5421 <br>
+    - 結果があまり良くなかった。Rand_Augmentもモデル次第で効いたり効かなかったりする。ますますわからん。<br>
