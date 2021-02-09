@@ -728,7 +728,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - 画像サイズを410に戻し、Rand_Augmentを実装した。<br>
     - CV | LB | train_loss | valid_loss 
       :-----: | :-----: | :-----: | :-----:
-      0.88743 | - | 0.5569 | 0.5467 <br>
+      0.88743 | 0.895 | 0.5569 | 0.5467 <br>
+    - スコアが悪化した。今回はAugmentationは厳しくしても、noisyラベルに対してはあまり効果がなさそう。もしかすると、DeiTでもRand_Augmentを抜いた方がいいのかもしれない。<br>
 - nb031<br>
   - ver5<br>
     - モデルをdeit_base_patch16_384に変更した(distilledはなぜか動かなかった)。<br>
@@ -741,6 +742,21 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - Bi_Tempered_Lossにした。これまで通り,t1=0.8, t2=1.5, smooth=1e-2にしている。(smooth=5e-2がデフォルトだったが、少し様子を見る限りでは1e-2の方が良さそう。)<br>
     - CV | LB | train_loss | valid_loss 
       :-----: | :-----: | :-----: | :-----:
-      0.88505 | - | 0.2730 | 0.2658 <br>
+      0.88505 | 0.894 | 0.2730 | 0.2658 <br>
+    - TaylarCrossEntropyLossの方がCV, LB共によかった。逆に、EfficientNetやSeResNeXtでもそれが当てはまる可能性がある。<br>
     
-- RandAugmentに関する[いい記事](https://qiita.com/takoroy/items/e2f1ee627311be5d879d)を見つけた。<br>
+- [RandAugmentに関するわかりやすい記事](https://qiita.com/takoroy/items/e2f1ee627311be5d879d)を見つけた。<br>
+
+### 20210209<br>
+- nb023<br>
+  - ver14<br>
+    - denoiseした上でRand_Augmentを使ってみた。<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----:
+      0.93829 | - | 0.3928 | 0.2525 <br>
+- nb028<br>
+  - ver8(ver7は失敗)<br>
+    - ver3の状態から、loss_functionをBiTemperedLossからTaylorCrossEntropyLossに変更した。<br>
+- nb031<br>
+  - ver7<br>
+    - Rand_Augmentを外してみた。<br>
