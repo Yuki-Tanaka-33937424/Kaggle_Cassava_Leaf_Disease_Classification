@@ -753,10 +753,11 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - denoiseした上でRand_Augmentを使ってみた。<br>
     - CV | LB | train_loss | valid_loss 
       :-----: | :-----: | :-----: | :-----:
-      0.93829 | - | 0.3928 | 0.2525 <br>
+      0.93829 | 0.889 | 0.3928 | 0.2525 <br>
+    - 全然ダメだった。<br>
 - nb028<br>
   - ver8(ver7は失敗)<br>
-    - ver3の状態から、loss_functionをBiTemperedLossからTaylorCrossEntropyLossに変更した。原論文は[これ](https://www.ijcai.org/Proceedings/2020/0305.pdf)で、実装(非公式)は[ここ](https://github.com/CoinCheung/pytorch-loss/blob/master/pytorch_loss/taylor_softmax.py)。<br>
+    - ver3の状態から、loss_functionをBiTemperedLossからTaylorCrossEntropyLoss(以下TCE)に変更した。原論文は[これ](https://www.ijcai.org/Proceedings/2020/0305.pdf)で、実装(非公式)は[ここ](https://github.com/CoinCheung/pytorch-loss/blob/master/pytorch_loss/taylor_softmax.py)。<br>
     - 結果が全く良くなかった。原論文を読んで気がついたが、どうやらテイラー展開の次数がパラメータになっていて、低ければ低いほどMAEに近く(よりロバストに)なり、大きければ大きいほどCCEに近く(よりセンシティブに)なるらしい。ver8はt=2で回しており、tが低過ぎたらしい。その後に軽くt=4で回したらかなりうまく学習が進んだ。原論文ではt=2, 4, 6が実験されていた。<br>
 - nb031<br>
   - ver7<br>
@@ -765,3 +766,23 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       :-----: | :-----: | :-----: | :-----:
       0.86449 | - | 0.4789 | 0.5421 <br>
     - 結果があまり良くなかった。Rand_Augmentもモデル次第で効いたり効かなかったりする。ますますわからん。<br>
+  - ver8・ver9<br>
+    - Rand_Augmentを入れ直して、TaylorCrossEntropyLossのnを4にした。<br>
+    - n | CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----: 
+      2 | 0.88715 | 0.896 | 0.5281 | 0.5344
+      4 | 0.88668 | 0.892 | 0.5276 | 0.5346   
+      6 | 0.88318 | 0.893 | 0.5522 | 0.5445 <br>
+    - n=2はver5の再掲。n=2のスコアは越えられなかった。DeiTはデフォルトのスコアが限界かもしれない。<br>
+- GCPのインスタンスを立てることに成功した。以下、その手順をまとめておく。
+  1. [この記事](https://qiita.com/lain21/items/a33a39d465cd08b662f1)VMインスタンスを立てる。その時、「GCEインスタンスの作成」の(4)Frameworkでpytorch+cuda11.0を選んでおく。<br>
+  2. [この記事](https://qiita.com/hiromu166/items/507fc0fb466c7149dccf)を参考にして、JUPYTER LABを開くを選択すれば、すぐにlabが使えるようになる。kaggle.jsonをGUIであげてkaggle apiを使えるようにすれば、インスタンスに直接データを入れられる。<br>
+
+### 20210211<br>
+- nb028<br>
+  - ver9・ver10<br>
+    - TCEのnを4と6にして実験した。<br>
+    - n | CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----: 
+      4 | 0.89408 | - | 0.2960 | 0.3318   
+      6 | 0.89503 | - | 0.3085 | 0.3389 <br>
