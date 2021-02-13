@@ -811,4 +811,18 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       6 | 0.89180 | 0.897 | 0.4022 | 0.3625 <br>
 
 ### 20210214<br>
-
+- nb023<br>
+  - ver17<br>
+    - n=4で、optimizerをAdamにしてaccumulation_stepを4にして高速化を行った。訓練時間は約半分。<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----: 
+      0.89180 | - | 0.2993 | 0.3412 <br> 
+- nb028<br>
+  - ver13<br>
+    - n=4で、optimizerをAdamにしてaccumulation_stepを4にして高速化を行った。訓練時間は約半分。<br>
+    - CV | LB | train_loss | valid_loss 
+      :-----: | :-----: | :-----: | :-----: 
+      0.89180 | - | 0.2993 | 0.3412 <br> 
+- nb033(several_models)<br>
+  - ver1<br>
+    - B3ns(ver1)とSeResNeXt(ver3)をアンサンブルした。<br>
