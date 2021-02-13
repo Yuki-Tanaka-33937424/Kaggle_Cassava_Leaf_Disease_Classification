@@ -816,13 +816,17 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - n=4で、optimizerをAdamにしてaccumulation_stepを4にして高速化を行った。訓練時間は約半分。<br>
     - CV | LB | train_loss | valid_loss 
       :-----: | :-----: | :-----: | :-----: 
-      0.89180 | - | 0.2993 | 0.3412 <br> 
+      0.89180 | 0.895 | 0.2993 | 0.3412 <br> 
+    - SAMを採用する。<br>
 - nb028<br>
   - ver13<br>
     - n=4で、optimizerをAdamにしてaccumulation_stepを4にして高速化を行った。訓練時間は約半分。<br>
     - CV | LB | train_loss | valid_loss 
       :-----: | :-----: | :-----: | :-----: 
-      0.88933 | - | 0.3245 | 0.3520 <br> 
+      0.88933 | 0.895 | 0.3245 | 0.3520 <br> 
+    - SAMを採用する。<br>
 - nb033(several_models)<br>
   - ver1<br>
     - B3ns(ver1)とSeResNeXt(ver3)をアンサンブルした。<br>
+    - LBは0.899だった。スコアの伸びが期待できそう。<br>
+    - ふと気づいたが、inferenceでseedを固定していないせいで、LBスコアが再現できていない可能性がある。次回から固定して検証する。<br>
