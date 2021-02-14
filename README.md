@@ -863,3 +863,5 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb034(B3ns_2)<br>
   - ver1<br>
     - nb023_ver1のfoldを2にした。<br>
+- timmでswsl_resnext101_32x8dというモデルを見つけた。パラメータの数も許容範囲内で、かなり精度もいい。SeResNeXtを超える可能性がある<br>
+- [Discussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/218907)で、NFNetというモデルが紹介されていた。パラメータ数は多いが、早いらしい。SOTAらしいので試してみたい。<br>
