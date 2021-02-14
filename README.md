@@ -839,6 +839,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - batch_sizeは特に関係なかった。<br>
 - nb031<br>
   - 数日前から急に、timmをimportしようとしたらtorch._sixからcontainer_abc(的なやつ)をimportできないというエラーが吐かれ、TPUが全く動かせなくなっていた。原因は、torch._sixが数日前にupdateされて、それに合わせてtimmもupdateされていたが、timmのdatasetに変更が反映されず、torch._sixとtimmの対応がおかしくなっていたことだった。kaggleのdatasetとgithubのリポジトリのversionが合っていないためにエラーが起こるのは仕方のないことなようなので、今後は気をつける。今回は、timmのdatasetを作り直すことで解決した。<br>
+- timmでswsl_resnext101_32x8dというモデルを見つけた。パラメータの数も許容範囲内で、かなり精度もいい。SeResNeXtを超える可能性がある<br>
+- [Discussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/218907)で、NFNetというモデルが紹介されていた。パラメータ数は多いが、早いらしい。SOTAらしいので試してみたい。<br>
 - nb033(several_models)<br>
   - ver1<br>
     - B3ns(ver1)とSeResNeXt(ver3)をアンサンブルした。<br>
@@ -863,5 +865,6 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb034(B3ns_2)<br>
   - ver1<br>
     - nb023_ver1のfoldを2にした。<br>
-- timmでswsl_resnext101_32x8dというモデルを見つけた。パラメータの数も許容範囲内で、かなり精度もいい。SeResNeXtを超える可能性がある<br>
-- [Discussion](https://www.kaggle.com/c/cassava-leaf-disease-classification/discussion/218907)で、NFNetというモデルが紹介されていた。パラメータ数は多いが、早いらしい。SOTAらしいので試してみたい。<br>
+- nb035(swsl_resnext50_32x4d)<br>
+  - swsl_resnext101_32x8dは重たすぎたので、swsl_resnext50_32x4dにした。これでもseresnextよりランキングが高い上、seresnextより軽くて早い。<br>
+  - 画像サイズは410で、損失関数はbitemperedlossにした。<br>
