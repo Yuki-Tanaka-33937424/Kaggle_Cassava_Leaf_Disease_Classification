@@ -866,5 +866,6 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
   - ver1<br>
     - nb023_ver1のfoldを2にした。<br>
 - nb035(swsl_resnext50_32x4d)<br>
-  - swsl_resnext101_32x8dは重たすぎたので、swsl_resnext50_32x4dにした。これでもseresnextよりランキングが高い上、seresnextより軽くて早い。<br>
-  - 画像サイズは410で、損失関数はbitemperedlossにした。<br>
+  - ver1
+    - swsl_resnext101_32x8dは重たすぎたので、swsl_resnext50_32x4dにした。これでもseresnextよりランキングが高い上、seresnextより軽くて早い。<br>
+    - 画像サイズは410で、損失関数はbitemperedlossにした。<br>
