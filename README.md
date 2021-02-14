@@ -823,6 +823,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - CV | LB | train_loss | valid_loss 
       :-----: | :-----: | :-----: | :-----: 
       0.89427 | 0.897 | 0.3429 | 0.3288 <br> 
+    - batch_sizeは特に関係なかった。<br>
 - nb028<br>
   - ver13<br>
     - n=4で、optimizerをAdamにしてaccumulation_stepを4にして高速化を行った。訓練時間は約半分。<br>
@@ -835,6 +836,9 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - CV | LB | train_loss | valid_loss 
       :-----: | :-----: | :-----: | :-----: 
       0.89560 | 0.897 | 0.3045 | 0.3340 <br> 
+    - batch_sizeは特に関係なかった。<br>
+- nb031<br>
+  - 数日前から急に、timmをimportしようとしたらtorch._sixからcontainer_abc(的なやつ)をimportできないというエラーが吐かれ、TPUが全く動かせなくなっていた。原因は、torch._sixが数日前にupdateされて、それに合わせてtimmもupdateされていたが、timmのdatasetに変更が反映されず、torch._sixとtimmの対応がおかしくなっていたことだった。kaggleのdatasetとgithubのリポジトリのversionが合っていないためにエラーが起こるのは仕方のないことなようなので、今後は気をつける。今回は、timmのdatasetを作り直すことで解決した。<br>
 - nb033(several_models)<br>
   - ver1<br>
     - B3ns(ver1)とSeResNeXt(ver3)をアンサンブルした。<br>
@@ -842,4 +846,5 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - ふと気づいたが、inferenceでseedを固定していないせいで、LBスコアが再現できていない可能性がある。次回から固定して検証する。<br>
     - 確認したら、ちゃんとseedを固定していた。<br>
 ### 20210214<br>
-- nb023<br>
+- nb023<br> 
+  - 再現性が心配だったので、ver3で出した、batch_sizeが128でLBスコアが0.899のものを再現できるかどうかを確かめるために、ver3_6をサブミットした。<br>
