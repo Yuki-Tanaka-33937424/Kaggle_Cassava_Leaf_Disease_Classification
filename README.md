@@ -898,3 +898,6 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb033<br>
   - ver2<br>
     - nb023_sub1, nb028_ver15, nb031_ver5をアンサンブルした。<br>
+- nb037(ViT)<br>
+  - ver1<br>
+    - nb031_ver5から、modelをViTに変更して全foldに渡って学習させた。
