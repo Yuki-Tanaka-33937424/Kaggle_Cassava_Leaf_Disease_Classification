@@ -891,6 +891,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - cleanlab_dataを用いてdenoiseし、fold2の学習を行った。<br>
   - sub1<br>
     - ver1を全てのfoldに拡張した。(13:35~)
+    - LBは0.900で、subにかかった時間は大体3時間だった。<br>
 - nb028<br>
   - ver16<br>
     - ver11から、denoiseして対象をfold2に変更した。<br>
