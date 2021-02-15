@@ -832,7 +832,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
       0.88933 | 0.895 | 0.3245 | 0.3520 <br> 
     - SAMを採用する。<br>
   - ver14<br>
-    - ver11から、batch_sizeを16にあげた(batch_sizeの違いによるスコアへの影響を調べるため)。<br>
+    - ver11から、batch_sizeを32にあげた(batch_sizeの違いによるスコアへの影響を調べるため)。<br>
     - CV | LB | train_loss | valid_loss 
       :-----: | :-----: | :-----: | :-----: 
       0.89560 | 0.897 | 0.3045 | 0.3340 <br> 
@@ -889,3 +889,11 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb023<br>
   - ver21<br>
     - cleanlab_dataを用いてdenoiseし、fold2の学習を行った。<br>
+  - sub1<br>
+    - ver1を全てのfoldに拡張した。(13:35~)
+- nb028<br>
+  - ver16<br>
+    - ver11から、denoiseして対象をfold2に変更した。<br>
+- nb033<br>
+  - ver2<br>
+    - nb023_sub1, nb028_ver15, nb031_ver5をアンサンブルした。<br>
