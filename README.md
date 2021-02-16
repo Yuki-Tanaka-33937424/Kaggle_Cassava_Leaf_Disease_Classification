@@ -910,6 +910,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb033<br>
   - ver3<br>
     - [このNotebook](https://www.kaggle.com/japandata509/ensemble-resnext50-32x4d-efficientnet-0-903)を参考に、inferenceを変えてみた。今までやっていたアンサンブルの方法だと、2つのモデルを混ぜてもあまり精度が上がらないのかもしれない。(TTAをやりすぎた??)このEfficientNetB3nsとResNeXtをこの方法で混ぜて0.903に届くのなら、アンサンブル次第では自分のモデルももっと上に行けるはず。<br>
+    - Time outになってしまった。<br>
   - ver4<br>
     - B3nsとSeResNeXtのCVを色々探ってみた。どうやら、全foldを混ぜてもCVはあまり伸びないらしい。大きく伸びたのはfold4のペアで、次がfold1だった。<br>
     - fold | B3ns | SeResNeXt | アンサンブル
@@ -935,3 +936,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - LBは0.899のままだった。案の定意味がなかった。<br>
   - ver7(ver6は失敗)<br>
     - tfn_foldは全foldに戻した。過去の実験結果をみていると、画像サイズが大きい場合にTTAがほとんど効いていないようだったので、とりあえず外してみた。軽く入れるなら意味がありそうなので、それでもいいかもしれない。<br>
+    - LBは0.893だった。ある程度はTTAが効いていたらしい。<br>
+  - ver8<br>
+    - ver5から、foldを全てに戻して、TTAをRandomResizedcropだけにした。<br>
+  - ver9<br>
+    - ver3から、B3nsのepochをbestのみにした。<br>
