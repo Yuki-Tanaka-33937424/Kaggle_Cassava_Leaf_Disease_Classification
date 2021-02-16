@@ -941,3 +941,4 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - ver5から、foldを全てに戻して、TTAをRandomResizedcropだけにした。<br>
   - ver9<br>
     - ver3から、B3nsのepochをbestのみにした。<br>
+    - LBが0.897で所要時間が3時間ほど。これは望みがあるぞ。B3nsのepochも増やせるし、seresnextのTTAも追加できる。<br>
