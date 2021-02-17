@@ -949,5 +949,30 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
   - ver19<br>
     - learning_rateを3.0e-5に上げて、foldを1~4にした。<br>
 - nb033<br>
-  - ver10(ver9は失敗)<br>
-    - B3nsのepochを[9, 10]に変更した。また、SeResNeXtのTTAを復活させ、trainsformerをRandomResizedCropだけにした<br>
+  - ver11(ver9, ver10は失敗)<br>
+    - B3nsのepochを[9, 10]に変更した。また、SeResNeXtのTTAを復活させ、trainsformerをRandomResizedCropだけにした。<br>
+    - LBは0.898だった。なんで？？？もうまじでわからん。<br>
+  - ver13(ver12は失敗)<br> 
+    - ver11から、SeResNeXtのTTAの回数を減らした。<br>
+  - ver14<br>
+    - verから、SeResNeXtもB3nsと同じ方法で TTAを行った。<br>
+  - ver15<br>
+    - ver14で、stackingができるようにコードをかいた。(サブはしない。)
+- nb038(stacking_mlp)<br>
+  - 俵さんの[記事](https://tawara.hatenablog.com/entry/2020/12/16/132415)を参考にstackingをやってみることにした。mlpによるstackingのためのNotebook<br>
+  - ver1<br>
+    - nb023とnb028の全foldのoofを使ってモデルを作った。<br>
+- nb039(stacking_1dcnn)<br>
+  - ver1<br>
+    - 1DCNNでstacking用のモデルを作った。用いたデータはnb023とnb028のoof。<br>
+- nb040(stacking_2dcnn)<br>
+  - ver1<br>
+    - 2DCNNでstacking用のモデルを作った。用いたデータはnb023とnb028のoof。<br>
+- nb041(create_oof_B3ns)<br>
+  - ver1<br>
+    - inferenceで行うTTAと同じAugmentationを使ってoofを作らないといけないと考えたので、oofを作るためのNotebookを作った。inference_with_ttaで、epochは[9, 10]を使うことを想定した。<br>
+  - ver2<br>
+    - epochをbestのものだけにした。<br>
+- nb042(create_oof_SeResNeXt)<br>
+  - ver1<br>
+    - nb041_ver2のモデルをSeResNeXtにした。<br>
