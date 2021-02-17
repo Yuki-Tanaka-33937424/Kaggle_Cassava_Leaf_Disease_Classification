@@ -957,7 +957,9 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
   - ver14<br>
     - verから、SeResNeXtもB3nsと同じ方法で TTAを行った。<br>
   - ver15<br>
-    - ver14で、stackingができるようにコードをかいた。(サブはしない。)
+    - ver14で、stackingができるようにコードをかいた。(サブはしない。)<br>
+  - ver16<br>
+    - ver9からstackingを行った。<br>
 - nb038(stacking_mlp)<br>
   - 俵さんの[記事](https://tawara.hatenablog.com/entry/2020/12/16/132415)を参考にstackingをやってみることにした。mlpによるstackingのためのNotebook<br>
   - ver1<br>
@@ -976,3 +978,4 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb042(create_oof_SeResNeXt)<br>
   - ver1<br>
     - nb041_ver2のモデルをSeResNeXtにした。<br>
+  
