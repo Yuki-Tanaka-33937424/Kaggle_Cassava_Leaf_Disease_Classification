@@ -901,7 +901,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - 0.899だった。辛すぎる。<br>
 - nb037(ViT)<br>
   - ver1<br>
-    - nb031_ver5から、modelをViTに変更して全foldに渡って学習させた。
+    - nb031_ver5から、modelをViTに変更して全foldに渡って学習させた。<br>
+    - 結果は記録するほどではなかった。使わない。<br>
 
 ### 20210216<br>
 - nb028<br>
@@ -939,6 +940,14 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - LBは0.893だった。ある程度はTTAが効いていたらしい。<br>
   - ver8<br>
     - ver5から、foldを全てに戻して、TTAをRandomResizedcropだけにした。<br>
+    - LBが0.900に上がった。こっちの方が良さそう。<br>
   - ver9<br>
     - ver3から、B3nsのepochをbestのみにした。<br>
     - LBが0.897で所要時間が3時間ほど。これは望みがあるぞ。B3nsのepochも増やせるし、seresnextのTTAも追加できる。<br>
+### 20210217<br>
+- nb028<br>
+  - ver19<br>
+    - learning_rateを3.0e-5に上げて、foldを1~4にした。<br>
+- nb033<br>
+  - ver10(ver9は失敗)<br>
+    - B3nsのepochを[9, 10]に変更した。また、SeResNeXtのTTAを復活させ、trainsformerをRandomResizedCropだけにした<br>
