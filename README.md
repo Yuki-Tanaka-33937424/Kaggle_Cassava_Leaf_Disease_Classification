@@ -960,6 +960,8 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - ver14で、stackingができるようにコードをかいた。(サブはしない。)<br>
   - ver16<br>
     - ver9からstackingを行った。<br>
+  - ver17<br>
+    - ver8から、SeResNeXtのTTAを無くした。<br>
 - nb038(stacking_mlp)<br>
   - 俵さんの[記事](https://tawara.hatenablog.com/entry/2020/12/16/132415)を参考にstackingをやってみることにした。mlpによるstackingのためのNotebook<br>
   - ver1<br>
