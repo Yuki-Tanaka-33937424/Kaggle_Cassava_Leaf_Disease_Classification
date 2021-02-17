@@ -964,12 +964,18 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
   - 俵さんの[記事](https://tawara.hatenablog.com/entry/2020/12/16/132415)を参考にstackingをやってみることにした。mlpによるstackingのためのNotebook<br>
   - ver1<br>
     - nb023とnb028の全foldのoofを使ってモデルを作った。<br>
+  - ver2<br>
+    - nb023のoofを、inference_with_ttaのものに置き換えた。<br>
 - nb039(stacking_1dcnn)<br>
   - ver1<br>
     - 1DCNNでstacking用のモデルを作った。用いたデータはnb023とnb028のoof。<br>
+  - ver2<br>
+    - nb023のoofを、inference_with_ttaのものに置き換えた。<br>
 - nb040(stacking_2dcnn)<br>
   - ver1<br>
     - 2DCNNでstacking用のモデルを作った。用いたデータはnb023とnb028のoof。<br>
+  - ver2<br>
+    - nb023のoofを、inference_with_ttaのものに置き換えた。<br>
 - nb041(create_oof_B3ns)<br>
   - ver1<br>
     - inferenceで行うTTAと同じAugmentationを使ってoofを作らないといけないと考えたので、oofを作るためのNotebookを作った。inference_with_ttaで、epochは[9, 10]を使うことを想定した。<br>
@@ -978,4 +984,3 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb042(create_oof_SeResNeXt)<br>
   - ver1<br>
     - nb041_ver2のモデルをSeResNeXtにした。<br>
-  
