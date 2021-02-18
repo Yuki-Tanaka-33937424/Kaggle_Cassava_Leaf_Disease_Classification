@@ -960,8 +960,10 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - ver14で、stackingができるようにコードをかいた。(サブはしない。)<br>
   - ver16<br>
     - ver9からstackingを行った。<br>
+    - LBは0.896。stackingは望み薄っぽい。<br>
   - ver17<br>
     - ver8から、SeResNeXtのTTAを無くした。<br>
+    - LBは0.899。<br>
 - nb038(stacking_mlp)<br>
   - 俵さんの[記事](https://tawara.hatenablog.com/entry/2020/12/16/132415)を参考にstackingをやってみることにした。mlpによるstackingのためのNotebook<br>
   - ver1<br>
@@ -986,3 +988,14 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - nb042(create_oof_SeResNeXt)<br>
   - ver1<br>
     - nb041_ver2のモデルをSeResNeXtにした。<br>
+
+### 20210218<br>
+- 今日は最終日。<br>
+- nb023<br>
+  - sub1から、TTAをRandomResizedCropだけにしてsub1_2とした。
+  - sub1_2から、inference_with_ttaを加えてアンサンブルしてsub1_3とした。<br>
+- nb033<br>
+  - ver8のSeResNeXtを、画像サイズが512のものに変更した。<br>
+- nb041<br>
+  - ver3<br>
+    - 今までずっと使っていたTTAでoofを作るコードをかいた。(commitはしてない。)<br>
