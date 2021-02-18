@@ -3,10 +3,6 @@
 Cassava Leaf Disease Classification コンペのリポジトリ  
 タスク管理ボード: [リンク](https://github.com/Yuki-Tanaka-33937424/Kaggle_Cassava_Leaf_Disease_Classification/projects/2) <- 大事!!!  
 
-## 有用リンク
-[optimizer](https://github.com/jettify/pytorch-optimizer)  
-[bi_tempered_loss の pytorch実装](https://github.com/mlpanda/bi-tempered-loss-pytorch)  
-
 ## 方針(暫定)
 - Kaggle上で全てを完結させる
 - Version名は常にVersion○に統一して、READMEに簡単に内容を書き込む
@@ -44,9 +40,33 @@ train/test]_tfrecords: tfrecord形式の画像ファイル。
 
 label_num_to_disease_map.json。各疾患コードと実際の疾患名とのマッピング。  
 
+## Paper<br>
+- 参考にした論文の一覧。決して全てを理解してるわけではない。<br>
+
+| No | Name | Detail | Date | link |
+| ----- | ----- | ----- | ----- | ----- |
+| 01 | mixup: Beyond Empirical Risk Minimization |　画像とラベルを同じ割合で混ぜるAugmentation手法 | 27 Apr 2018 | [link](https://arxiv.org/pdf/1710.09412) | 
+| 02 | CutMix: Regulatization Strategy to Train Strong Classifiers with Localizable Features | 画像を混ぜる領域を矩形領域にしたもの。cutoutによって画像の情報量が落ちることに対する解決策 | 7 aug 2019 | [link](https://arxiv.org/pdf/1905.04899.pdf) | 
+| 03 | FMix: Enhancing Mixed Sample Data Augmentation | Cutmixから、画像の混合領域を曲線にしたもの | 24 Jun 2020 | [link](https://arxiv.org/pdf/2002.12047.pdf) |
+| 04 | SnapMix: Semantically Proportional Mixing for Augmenting Fine-grained Data | Semantically Proportional Mixing の略で、画像を混ぜる際に、ラベルの比率を画像の面積比にするのではなく、class activation map(CAM) を用いて、比率を定めることにしたもの | 9 Dec 2020 | [link](https://arxiv.org/pdf/2012.04846.pdf) | 
+| 05 | Robust Bi-Tempered Ligistic Loss Based on Bregman Divergence | logistic loss にtemperatureパラメータを導入することにより、ラベルノイズに引っ張られずに学習することを可能にした損失関数 | 23 Sep 2019 | [link](https://arxiv.org/pdf/1906.03361.pdf) | 
+| 06 | Can Cross Entropy Loss Be Robust to Label Noise? | cross entropy loss をテイラー展開することにより、ラベルにノイズがある中でも精度をあげることを可能にした損失関数について。２次で止めるとMSE(Mean Squared Error)になるなど、解析が面白い。 | 2 Oct 2020 | [link](https://www.ijcai.org/Proceedings/2020/0305.pdf) | 
+| 07 | EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks | 言わずと知れたEfficientNetについて。深さ・幅・解像度を適切にスケールアップすることで効率的に精度を改善しているモデル。 | 11 Sep 2020 | [link](https://arxiv.org/pdf/1905.11946.pdf) | 
+| 08 | An Image is Worth 16x16 Words: Transformers for Image | Vision Transformerについて。画像を分割してTransformerの入力にしている。 | 22 Oct 2020 | [link](https://arxiv.org/pdf/2010.11929.pdf) | 
+| 09 | Training data-efficient image transformers & distillation through attention | Data-efficient Image Transformers(DeiT)について。Vision Transformerは莫大な量の画像でpretrainする必要があったため、それを解消した。ImageNetの画像だけでモデルを作ったらしい。また、distillation(蒸留)も導入している。 | 15 Jan 2021 | [link](https://arxiv.org/pdf/2012.12877.pdf) | 
+| 10 | Sharpness-Aware Minimization for Efficiently Improving Generalization | SAM optimizerについて。周辺領域で最大損失であるところの勾配を使ってパラメータを更新する手法。2回back prop をする必要がある。 | 4 Dec 2020 | [link](https://arxiv.org/pdf/2010.01412.pdf) | 
+| 11 | Confident Learning: Estimating Uncertainty in Dataset Labels | ラベルノイズを理論的に検出する方法について。 | 15 Feb 2021 | [link](https://arxiv.org/pdf/1911.00068.pdf) | 
+
+- Discussionで話題に上がったりしたものの、あまり読めなかった論文<br>
+  - [Data-Efficient Deep Learning Method for Image Classification Using Data Augmentation, Focal Cosine Loss, and Ensemble](https://arxiv.org/pdf/2007.07805.pdf)
+  - [Learning Not to Learn in the Presence of Noisy Labels](https://arxiv.org/pdf/2002.06541.pdf)
+  - [Symmetric Cross Entropy for Robust Learning with Noisy Labels](https://arxiv.org/pdf/1908.06112.pdf)
+  - [Robustness of Accuracy Metric and its Inspirations in Learning with Noisy Labels](https://arxiv.org/pdf/2012.04193.pdf)
+
+
 ## Log
 
-### 20201214
+### 20201214<br> 
 - join!  
 - 管理方法についてひたすら悩む。  
 - 明日はコードを書かなければ...  
@@ -1000,8 +1020,12 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - Timeoutだった。このタイミングでやらかしてしまった。<br>
   - ver20(ver19は失敗)<br>
     - ver18から、fold2を削った。今更気づいたが、訓練データを15000枚とって使えば、大体サブにかかる時間がわかる。もっと早く気付きたかった。<br>
+    - 結局Timeout。もう救いようがない。<br>
   - ver21<br>
     - ver9から、SeResNeXtの画像サイズを512に上げて、TTAを復活させてfold2を削った。<br>
+    - LBは0.898だった。<br>
 - nb041<br>
   - ver3<br>
     - 今までずっと使っていたTTAでoofを作るコードをかいた。(commitはしてない。)<br>
+  - ver4<br> 
+    - TTAをRandomResizedCropのみにした。<br> 
