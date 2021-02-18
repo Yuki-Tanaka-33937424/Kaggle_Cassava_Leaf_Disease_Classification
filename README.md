@@ -995,7 +995,13 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
   - sub1から、TTAをRandomResizedCropだけにしてsub1_2とした。
   - sub1_2から、inference_with_ttaを加えてアンサンブルしてsub1_3とした。<br>
 - nb033<br>
-  - ver8のSeResNeXtを、画像サイズが512のものに変更した。<br>
+  - ver18<br>
+    - ver8のSeResNeXtを、画像サイズが512のものに変更した。<br>
+    - Timeoutだった。このタイミングでやらかしてしまった。<br>
+  - ver20(ver19は失敗)<br>
+    - ver18から、fold2を削った。今更気づいたが、訓練データを15000枚とって使えば、大体サブにかかる時間がわかる。もっと早く気付きたかった。<br>
+  - ver21<br>
+    - ver9から、SeResNeXtの画像サイズを512に上げて、TTAを復活させてfold2を削った。<br>
 - nb041<br>
   - ver3<br>
     - 今までずっと使っていたTTAでoofを作るコードをかいた。(commitはしてない。)<br>
