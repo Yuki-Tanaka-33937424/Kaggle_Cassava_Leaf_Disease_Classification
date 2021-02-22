@@ -1,20 +1,21 @@
 ![0A63BFAC-7C55-49F6-A6BA-111F1DF9F6AD_4_5005_c](https://user-images.githubusercontent.com/70050531/102084360-65bf1d80-3e58-11eb-82de-647a2e845ed7.jpeg)
 # Kaggle_Cassava_Leaf_Disease_Classification<br>
-Cassava Leaf Disease Classification コンペのリポジトリです。
-nbというディレクトリに、今回使用したNotebookをおいてあります。
-ただし、下の方針にもある通り、今回はKaggle上でほぼ完結させているため、gitは使用していません。ですので、nbの中においてあるNotebookはほぼ全て最新のバージョンのみとなります。
+Cassava Leaf Disease Classification コンペのリポジトリです。<br>
+nbというディレクトリに、今回使用したNotebookをおいてあります。<br>
+ただし、下の方針にもある通り、今回はKaggle上でほぼ完結させているため、gitは使用していません。ですので、nbの中においてあるNotebookはほぼ全て最新のバージョンのみとなります。<br>
+また、E資格に関わる内容を含むため、nb007に関する記述はカットしてあります。<br>
 
 ## 最終結果
 <img width="949" alt="スクリーンショット 2021-02-21 20 27 02" src="https://user-images.githubusercontent.com/70050531/108695391-93ed6780-7543-11eb-82db-a48f54933e29.png">
-- public: 0.9009
-- private: 0.8977
-- rank: 415/3900 (top11%) 
-あと25人、点数にしてあと0.0001でした。悔しい...
+- public: 0.9009<br>
+- private: 0.8977<br>
+- rank: 415/3900 (top11%)<br> 
+あと25人、点数にしてあと0.0001でした。悔しい...<br>
 
 ## 方針
-- Kaggle上で全てを完結させる 
-- Version名は常にVersion○に統一して、READMEに簡単に内容を書き込む
-- 詳しい実験などを行った際には、その旨をREADMEに書き込み、詳しい実験結果はそのNoteBookの一番上にoverviewとして書き込む -> README.mdだけで事足りたので使いませんでした。
+- Kaggle上で全てを完結させる<br>
+- Version名は常にVersion○に統一して、READMEに簡単に内容を書き込む<br>
+- 詳しい実験などを行った際には、その旨をREADMEに書き込み、詳しい実験結果はそのNoteBookの一番上にoverviewとして書き込む -> README.mdだけで事足りたので使いませんでした。<br>
 
 ## Basics
 ### Overview(DeepL)
@@ -99,16 +100,16 @@ label_num_to_disease_map.json。各疾患コードと実際の疾患名とのマ
   - EDAの後に全ての画像のラベルを揃えてsubしてみた。trainとpublicの分布はほぼ同じとみていい。privateもほぼ同じだろう。  
   
 ### 20201219  
-- nb 001  
+- nb001  
   - LBの結果を追記。  
-- nb 003  
+- nb003  
   - ver2  
     - Y.Nakamaさんのベースラインを写経。Resnext50_32x4dのpretrain有り。  
     - CV=0.87321, LB=0.880  
   - ver3  
     - optimizerをAdamからAdaBeliefに変えてみる。  
     - CV=0.87321, LB=0.879  ほぼ変わらん。なぜ？？？ <- Schedulerがlrをいい感じに変えているためにoptimizerの差が打ち消されている可能性が大きい。  
-- nb 005   
+- nb005   
   - ver1  
     - EfficientNet-B0を実装。実行時間が30分ぐらい減った!!  
     - AdaBliefはそのまま。  
@@ -117,7 +118,7 @@ label_num_to_disease_map.json。各疾患コードと実際の疾患名とのマ
 CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- CVのラベリングがおかしい(Noisyな)可能性がある。
 
 ### 20201220  
-- nb_005  
+- nb005  
   - ver2  
     - n_foldを4に落とした。  
     - CV=0.85129, LB=0.855  
@@ -141,7 +142,7 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
     - 凍結するのをepoch2までにした。  
 
 ### 20201221  
-- nb_005  
+- nb005  
   - ver7  
     - epoch2はほとんど学習していなかった。最初の学習率を10倍にしたからか？  
     - CV=0.85619, LB=0.867  
@@ -164,29 +165,16 @@ CVよりLBスコアの方が高いのはなぜ？若干違和感がある。 <- 
 - 画像コンペでの心得をいくつか聞いたのでメモ。<br>
   - モデル選択が非常に重要。確かにそうなので、他のモデルに移行する時期も決めた方が良さげ。<br>
   - 最初のfoldだけで実験するといい。だいぶ時間の節約になりそう。<br>
-- nb 005  
+- nb005  
   - ver8.5  
     - batch_sizeを64に落として学習してみた。fold1でCV=0.86019。これはver7とほぼ同じ。  
     - ここまでの実験では、batch_sizeは32よりは64がいいが、128にしても大差はなさそう、といった感じ。  
 
 ### 20201227  
 - GCPへの移行とE資格対策にかなりの時間を費やしてしまった。  
-- nb 005  
+- nb005  
   - ver 9
     - bi_tempered_lossをとりあえず実装し、動くことを確認。t1とt2が1の時にうまく動作しない...  
-- nb 007 (E資格のプロダクト課題) nb 005 ver8 のfork　
-  - ver 3 (ver1とver2は失敗)  
-    - optimizerをAdam, AdaBound, RAdam, Adabeliefにして、fold1のみで実験  
-    - まあ恐らく結果はほとんど変わらない。schedulerがいい働きをしてoptimizer間の違いを吸収してしまうはず。  
-  - ver 4<br>
-    - schedulerをNoneにしてみた。
-    - 結果がver3と全く同じになってしまった。なぜ？？？
-    - 全結合層以外を凍結する操作を入れた時から、optimizerのインスタンスを新しく生成しているせいで、schedulerの管理下から外れていることが発覚。ということは、nb_007のver7から全てそうなってしまっている。<br>
-    - じゃあなんで実行時間が伸びたんだよ...<br>
-  - ver 5<br>
-    - ver3において、schedulerをしっかり動かした。<br>
-    - AdamがCV=0.86449(fold1)でトップ。どうやらschedulerを使うと逆転するらしい。<br>
-    - 今後はAdamに戻そうと思う。<br>
 
 ### 20201228<br>
 - nb 005<br>
