@@ -1,12 +1,20 @@
 ![0A63BFAC-7C55-49F6-A6BA-111F1DF9F6AD_4_5005_c](https://user-images.githubusercontent.com/70050531/102084360-65bf1d80-3e58-11eb-82de-647a2e845ed7.jpeg)
 # Kaggle_Cassava_Leaf_Disease_Classification<br>
-Cassava Leaf Disease Classification コンペのリポジトリ  
-タスク管理ボード: [リンク](https://github.com/Yuki-Tanaka-33937424/Kaggle_Cassava_Leaf_Disease_Classification/projects/2) <- 大事!!!  
+Cassava Leaf Disease Classification コンペのリポジトリです。
+nbというディレクトリに、今回使用したNotebookをおいてあります。
+ただし、下の方針にもある通り、今回はKaggle上でほぼ完結させているため、gitは使用していません。ですので、nbの中においてあるNotebookはほぼ全て最新のバージョンのみとなります。
 
-## 方針(暫定)
-- Kaggle上で全てを完結させる
+## 最終結果
+<img width="949" alt="スクリーンショット 2021-02-21 20 27 02" src="https://user-images.githubusercontent.com/70050531/108695391-93ed6780-7543-11eb-82db-a48f54933e29.png">
+- public: 0.9009
+- private: 0.8977
+- rank: 415/3900 (top11%) 
+あと25人、点数にしてあと0.0001でした。悔しい...
+
+## 方針
+- Kaggle上で全てを完結させる 
 - Version名は常にVersion○に統一して、READMEに簡単に内容を書き込む
-- 詳しい実験などを行った際には、その旨をREADMEに書き込み、詳しい実験結果はそのNoteBookの一番上にoverviewとして書き込む
+- 詳しい実験などを行った際には、その旨をREADMEに書き込み、詳しい実験結果はそのNoteBookの一番上にoverviewとして書き込む -> README.mdだけで事足りたので使いませんでした。
 
 ## Basics
 ### Overview(DeepL)
