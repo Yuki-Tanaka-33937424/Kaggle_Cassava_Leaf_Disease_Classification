@@ -14,7 +14,7 @@ nbというディレクトリに、今回使用したNotebookをおいてあり�
 
 ## 方針
 - Kaggle上で全てを完結させる<br>
-- Version名は常にVersion○に統一して、READMEに簡単に内容を書き込む<br>
+- Version名は常にVersion○に統一して、README.mdに簡単に内容を書き込む<br>
 - [issue board](https://github.com/Yuki-Tanaka-33937424/Kaggle_Cassava_Leaf_Disease_Classification/projects/2)に思いついたアイデアを書いていく。
 - 詳しい実験などを行った際には、その旨をREADMEに書き込み、詳しい実験結果はそのNoteBookの一番上にoverviewとして書き込む -> README.mdだけで事足りたので使いませんでした。<br>
 
