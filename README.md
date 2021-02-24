@@ -3,7 +3,7 @@
 Cassava Leaf Disease Classification コンペのリポジトリです。<br>
 nbというディレクトリに、今回使用したNotebookをおいてあります。<br>
 ただし、下の方針にもある通り、今回はKaggle上でほぼ完結させているため、gitは使用していません。ですので、nbの中においてあるNotebookはほぼ全て最新のバージョンのみとなります。<br>
-このコンペの振り返り記事もQiitaにありますので、ぜひご覧ください！[こちらのリンク](https://qiita.com/Yuki_Kaggler/items/59d29c0942956c90eec6)から飛べます。<br>
+**このコンペの振り返り記事もQiitaにありますので、ぜひご覧ください。より流れを追いやすくなっております。[こちらのリンク](https://qiita.com/Yuki_Kaggler/items/59d29c0942956c90eec6)から飛べます。**<br>
 ※E資格に関わる内容を含むため、nb007に関する記述はカットしてあります。<br>
 
 ## 最終結果
